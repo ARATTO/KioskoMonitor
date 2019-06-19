@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pruebas de hardware</title>
+
+	<script src="js/fn_leerConfManagerErrorCode_olivares.js" type="text/javascript"></script>
+</head>
+<body>
+<script>
+	var locator = new ActiveXObject ("WbemScripting.SWbemLocator");//solo en Iexplorer
+    var service = locator.ConnectServer(".");
+	var propCpu=service.ExecQuery("SELECT * FROM Win32_Processor");
+
+
+      var e = new Enumerator (propCpu);
+      document.write("<table border=1>");
+      for (;!e.atEnd();e.moveNext ())
+      {
+            var p = e.item ();
+            document.write("<tr>");
+            document.write("<td>" + p.Caption + "</td>");
+            document.write("<td>" + p.DeviceID + "</td>");
+            document.write("<td>" + p.Name + "</td>");
+            document.write("<td>" + p.CpuStatus + "</td>");
+            document.write("<td>" + p.Availability + "</td>");
+            document.write("<td>" + p.Level + "</td>");
+            document.write("<td>" + p.ProcessorID + "</td>");
+            document.write("<td>" + p.SystemName + "</td>");
+            document.write("<td>" + p.ProcessorType + "</td>");
+            document.write("</tr>");
+      }
+      document.write("</table>");
+
+	document.write("<br>");
+      //Disk
+      var propDisks=service.ExecQuery("Select * from Win32_DiskDrive where Size>0");
+
+           var e2 = new Enumerator (propDisks);
+      document.write("<table border=1>");
+      for (;!e2.atEnd();e2.moveNext ())
+      {
+            var p2 = e2.item ();
+            document.write("<tr>");
+            document.write("<td>" + p2.Manufacturer + "</td>");
+            document.write("<td>" + p2.Model + "</td>");
+            var diskSize=  (Number(p2.Size) + 536870912 ) / 1073741824;
+            document.write("<td>" + diskSize.toFixed(2)  + " GB </td>");
+            document.write("<td>" + p2.Name + "</td>");
+            document.write("<td> Status: " + p2.Status + "</td>");
+            document.write("<td>" + p2.Description + "</td>");
+            document.write("<td>" + p2.Caption + "</td>");            
+            document.write("<td> Availability: " + p2.Availability + "</td>"); 
+            document.write("<td>" + p2.SerialNumber + "</td>");            
+            document.write("<td>" + p2.SystemName + "</td>");    
+            document.write("<td>" + leerConfManagerErrorCode(p2.ConfigManagerErrorCode) + "</td>"); 
+            document.write("<td>" + p2.ErrorDescription + "</td>");
+            document.write("<td>" + p2.LastErrorCode + "</td>");
+            document.write("<td>" + p2.InterfaceType + "</td>");
+            document.write("<td>" + p2.InstallDate + "</td>");            
+            document.write("</tr>");
+      }
+      document.write("</table>");
+
+     //**Memorias
+       document.write("<br>");
+        var propMem=service.ExecQuery("Select * from Win32_PhysicalMemory"); //Win32_PhysicalMemory  Win32_MemoryDevice  Win32_PhysicalMemoryArray
+
+            var e3 = new Enumerator (propMem);
+            var tModulos = 0; 
+  
+     for (;!e3.atEnd();e3.moveNext())
+      {
+            var p3 = e3.item ();
+            var mCapacity=0;;
+            tModulos = tModulos + 1;
+            mCapacity=(Number(p3.Capacity)/1024)/1024;  
+            document.write("<table border=1>"); 
+            document.write("<tr>");
+            document.write("<td> Modulos de Memoria: " + tModulos+ "</td>");
+            document.write("<td> Fabricante: " + p3.Manufacturer + "</td>");           
+            document.write("<td> Capacidad: " + mCapacity + " MB </td>"); 
+            document.write("<td> Instalado en: " + p3.DeviceLocator+ " MB </td>");
+            document.write("<td> Status: " + p3.status+ "</td>");
+            document.write("<td>  " + p3.SerialNumber+ "</td>");
+             document.write("<td>  " + p3.Description+ "</td>")
+            document.write("</tr>");    
+            document.write("</table>");
+
+      }
+
+
+         var propMem=service.ExecQuery("Select * from Win32_PhysicalMemory"); //Memoria
+         var e3 = new Enumerator (propMem);
+         var tModulos = 0; 
+	  	 var detMem=[];//guarda el datalle devarias memorias
+
+	      for (;!e3.atEnd();e3.moveNext())
+	      {
+	            var p3 = e3.item ();
+	            var mCapacity=0;;
+	            tModulos = tModulos + 1;
+	            mCapacity=(Number(p3.Capacity)/1024)/1024;  
+				tModulos;
+			
+				detMem.push({Ubicacion:p3.DeviceLocator,Fabricante:p3.Manufacturer,Capacidad:mCapacity, Estado:p3.status});
+	      }    
+
+	      var memoriax={totModulos:tModulos,detalle:detMem};
+
+
+      //***BIOS
+
+       document.write("<br>");
+       var propBios=service.ExecQuery("Select * from Win32_BIOS"); //
+
+            var e4 = new Enumerator (propBios);
+  
+      for (;!e4.atEnd();e4.moveNext())
+      {
+            var p4 = e4.item ();  
+            document.write("<table border=1>"); 
+            document.write("<tr>");
+            document.write("<td> Fabricante: " + p4.Manufacturer + "</td>");              
+            document.write("<td> Release Date: " + p4.ReleaseDate.slice(0,8)+ " </td>");
+            document.write("<td> Serie:" + p4.SerialNumber+ "</td>");
+            document.write("<td>  " + p4.SMBIOSBIOSVersion+ "</td>");
+            document.write("<td> Status: " + p4.status+ "</td>");            
+            document.write("</tr>");    
+            document.write("</table>");
+
+      }
+
+      //***OS
+
+       document.write("<br>");
+       var propOS=service.ExecQuery("Select * from Win32_OperatingSystem"); //
+
+            var e5 = new Enumerator (propOS);
+  
+      for (;!e5.atEnd();e5.moveNext())
+      {
+            var p5 = e5.item ();  
+            document.write("<table border=1>"); 
+            document.write("<tr>");
+            document.write("<td> OS: " + p5.Caption + "</td>");              
+            document.write("<td> Architecture: " + p5.OSArchitecture+ " </td>");
+            document.write("<td> Version: " + p5.Version+ "</td>");  
+            document.write("<td> Serial Number:" + p5.SerialNumber+ "</td>");
+            document.write("<td> Status: " + p5.Status+ "</td>");            
+            document.write("</tr>");    
+            document.write("</table>");
+
+      }
+
+      //***Windows Logs
+      
+      //***OS
+
+       document.write("<br>"); //Where SourceName Like "%Disk%"
+
+       //La sfechas s etrabajan con estr formato elect * from Win32_NTLogEvent Where TimeGenerated > '20170919000000.000000-000'
+       //"Select * from Win32_NTLogEvent Where SourceName='Netwtw04' and TimeGenerated > '20170920000000.000000-000'"
+  /*     var propLog=service.ExecQuery("Select * from Win32_NTLogEvent Where EventType=1 and EventCode=7030" ); //Select * from Win32_NTLogEvent Where SourceName="VMnetDHCP"' 
+
+            var e6 = new Enumerator (propLog);
+      for (;!e6.atEnd();e6.moveNext())
+      {
+            var p6 = e6.item ();  
+            document.write("<table border=1>"); 
+            document.write("<tr>");
+            document.write("<td>EventCode: " + p6.EventCode + "</td>");              
+            document.write("<td>Category: " + p6.CategoryString+ " </td>");
+            document.write("<td>Source: " + p6.SourceName+ "</td>");  
+            document.write("<td>Time Generated:" + p6.TimeGenerated+ "</td>");
+            document.write("<td> Event Type: " + p6.EventType+ "</td>");           
+            document.write("</tr>");  
+            document.write("<tr>");
+            document.write("<td>");
+            document.write(p6.Message);       
+            document.write("</td>");
+            document.write("</tr>");
+            document.write("</table>");
+
+      }
+*/
+
+// ver ip del cliente
+
+	function getClientIP(){
+	      var properties2 = service.ExecQuery("SELECT * FROM Win32_NetworkAdapterConfiguration Where IPEnabled = True");
+	      var e1 = new Enumerator (properties2);
+
+	      for (;!e1.atEnd();e1.moveNext ())
+	      {
+	            var p1 = e1.item ();
+
+	            if (p1.IPAddress!=null ) 
+	                alert("Description:"+p1.Description+"  IP: " + p1.IPAddress(0));
+
+	      }
+
+	}
+
+
+
+      /*for (var name in e4) {
+        if (e3.hasOwnProperty(name)) {
+          alert(name);
+        }
+      }*/
+
+
+      
+  
+
+      
+/*function getAllProperties(obj) {
+  var properties = '';
+  for (property in obj) {
+    properties += '\n' + property;
+  }
+  alert('Properties of object:' + properties);
+}*/
+</script>
+</body>
+</html>

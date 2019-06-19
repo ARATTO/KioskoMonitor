@@ -1,0 +1,3 @@
+
+-El clente de monitoreo solo de estar ejecutandose 1 vez en el equipo cliente 
+(si hay 2 instancias y se finaliza una de ellas, el server lo interpreta como equipo desconectado. Se debera volver a ejecutar la app con 1 sola instancia

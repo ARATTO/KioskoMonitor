@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />  
+
+    <meta name="description" content="Xpresalo Greeting messages ">
+    <meta name="author" content="Jose Luis Oivares">
+    <meta name="profile" content="https://www.linkedin.com/in/jolivaress">
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+ <title>Xpresalo V.1.0.2</title>
+     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="css/jssocials.css" />
+    <link rel="stylesheet" type="text/css" href="css/jssocials-theme-flat.css" />     
+      <!-- Custom CSS -->
+     <link href="css/simple-sidebar-blue.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+               <li class="sidebar-brand" id="mylogo">
+                    <a href="index.html"><span class="glyphicon glyphicon-home"></span> Inicio</a>
+                </li>
+                <div id="divListCat"> <!--carga Categorias -->
+                        <div id="divLoading" class="text-center"></br></br></br></br><img src="img/system/Preloader_3b.gif"></div>
+                </div>
+            </ul>
+        </div> <!-- /#sidebar-wrapper -->
+         <div id="swipeDiv" class="swipe-area"></div>        
+        <!-- Page Content --></br>
+        <div id="page-content-wrapper" class="nopadding">     
+            <div class="container-fluid nopadding">
+                <div class="row">
+                    <div class="col-lg-12 nopadding">
+                        <div class="page-header nopadding" >
+                          <h2><a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>Comparte tus  tarjetas con los que amas</h2><small>Subtext for header <div class="text-right">Users: <span id="usersConnected" class="label label-success"></span></div></small>
+                        </div> 
+                    </div>
+                </div>
+                <ol class="breadcrumb">Home/</ol>
+                    <div id="divContent">
+                        <h1>Simple Sidebar</h1>
+                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <button onclick="app.showAlert('Mensaje','Titulo');">Buton</button>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+            </div><!-- /#container-fluid-->
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+
+
+<!-- Modal -->
+<div id="imagemodal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-vertical-centered" >
+
+    <!-- Modal content-->
+    <div class="modal-content">
+          <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+                <img src="" class="imagepreview img-responsive" style="width:100%;" >
+          </div>
+          <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+    </div>
+
+  </div>
+</div>
+<!--end modal -->
+
+<script src="js/hammer.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/socket.io-1.4.5.js"></script>
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/handlebars-v4.js"></script>
+<script src="js/main.js"></script>
+
+   <!-- Menu Toggle Script -->
+<script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+
+            //trying to put a modal div when menu is open
+            /*
+            var p=$("#sidebar-wrapper").css('width');
+            if(p=='250px'){ //si el menu esta abierto
+               $("#modal-background").css("display","inline");
+            }else{
+                $("#modal-background").css("display","none");
+            }  */
+            
+            //app.showAlert("m","Entra click");
+        });
+
+       function verImg(ruta){ //showing image on modal view
+                $(".imagepreview").attr('src',ruta);
+                $("#imagemodal").modal("show");     
+        };
+
+        $("#share").jsSocials({shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]});
+
+</script>
+
+    <script id="tpl-subcat" type="text/x-handlebars-template">
+        {{#each this }}
+        <div class="col-xs-6 col-sm-3 col-lg-2 col-md-2">
+            <div class="thumbnail" onclick="app.showItems({{idsubcat}});">
+                <img src="http://placehold.it/320x150" alt="">    
+                <div class="caption">
+                    <h4 class="pull-right">***</h4>
+                    <h4><a href="#">{{subcatName}}</a></h4>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div> 
+        {{/each}}       
+    </script>
+
+    <script id="tpl-nofound" type="text/x-handlebars-template">
+        <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">    
+            <div class="alert alert-info text-center" role="alert">{{mensaje}}</div>
+        </div>    
+    </script>
+
+    <script id="tpl-items" type="text/x-handlebars-template">
+        {{#each this }}
+        <div class="col-xs-6 col-sm-2 col-lg-2 col-md-3">
+            <div class="thumbnail" onclick="verImg('{{file_path}}')">
+                <a href="#"><img src="{{file_path}}"  alt=""></a>    
+                <div class="caption">
+                    <h4 class="pull-right">***</h4>
+                    <h5>{{nombre}}</h5>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div> 
+        {{/each}}       
+    </script>
+
+     <script id="tpl-loading" type="text/x-handlebars-template">
+        <div class="thumbnail">
+            <div class="text-center">  <img src="img/system/Preloader_21.gif" alt="Loading..."> </div>     
+        </div>
+    </script>   
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<input  type="button" value="GG"  href="#" onclick="javascript:OpenFile();">
+
+<script language="javascript" type="text/javascript">
+//alert ('Work');
+//var x = new ActiveXObject("WScript.Shell");
+//x.run('mspaint.exe');
+
+    var network = new ActiveXObject('WScript.Network');
+
+
+
+var propiedades = Object.keys(network);
+
+console.log(propiedades);
+
+    //alert(network.computerName);
+
+
+/*Object.getOwnPropertyNames(network).forEach(function(val, idx, array) {
+  console.log(val + " -> " + obj[val]);
+});*/
+
+/*for (var key in network) {
+    if (network.hasOwnProperty(key)) {
+
+  
+        // useful code here 
+    }
+}*/
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+html,body{
+   overflow-X: hidden !important; 
+    /* Prevent scroll on narrow devices */ 	  
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.375s ease;
+    -moz-transition: all 0.375s ease;
+    -o-transition: all 0.375s ease;
+    transition: all 0.375s ease;
+    overflow: hidden; /*agregado*/
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 120;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+	overflow-x:hidden;
+    background: #5A6FD0;  /* color de fondo sidebar wrapper*/
+    -webkit-transition: all 0.375s ease;
+    -moz-transition: all 0.375s ease;
+    -o-transition: all 0.375s ease;
+    transition: all 0.375s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+	overflow-x: hidden; /*agregado*/
+}
+
+.swipe-area {
+  position: fixed;
+  width: 25px;
+  left: 0;
+  top: 0;
+  height:100%;
+  background: #CBE4EC ; /* none*/
+  z-index: 2;
+}
+
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px; /*-250*/
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #EDECEC; /*Link text color*/
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #FFF8DC; /* color brand name top sidebar*/
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+.modal-background{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    overflow-x: hidden;
+}
+
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0; /*oculto*/
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+        /* --------- */
+            -webkit-transition: all 0.375s ease;
+            -moz-transition: all 0.375s ease;
+            -o-transition: all 0.375s ease;
+            transition: all 0.375s ease; 
+        /* fin agregado */    
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

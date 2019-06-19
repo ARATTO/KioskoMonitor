@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<input  type="button" value="GG"  href="#" onclick="javascript:OpenFile();">
+
+<script language="javascript" type="text/javascript">
+//alert ('Work');
+//var x = new ActiveXObject("WScript.Shell");
+//x.run('mspaint.exe');
+
+    //var network = new ActiveXObject('WScript.Network');
+
+ var locator = new ActiveXObject ("WbemScripting.SWbemLocator");
+      var service = locator.ConnectServer(".");
+      var properties = service.ExecQuery("SELECT * FROM Win32_NetworkAdapterConfiguration");
+      var e = new Enumerator (properties);
+
+      for (;!e.atEnd();e.moveNext ())
+      {
+            var p = e.item ();
+
+            if (p.IPAddress!=null ) 
+                document.write("IP: " + p.IPAddress(0) + "</br>");
+
+      }
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

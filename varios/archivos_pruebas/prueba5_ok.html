@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<input  type="button" value="GG"  href="#" onclick="javascript:OpenFile();">
+
+<script language="javascript" type="text/javascript">
+//alert ('Work');
+//var x = new ActiveXObject("WScript.Shell");
+//x.run('mspaint.exe');
+
+    //var network = new ActiveXObject('WScript.Network');
+
+ var locator = new ActiveXObject ("WbemScripting.SWbemLocator");
+      var service = locator.ConnectServer(".");
+      var properties = service.ExecQuery("SELECT * FROM Win32_NetworkAdapterConfiguration");
+      var e = new Enumerator (properties);
+      document.write("<table border=1>");
+      dispHeading();
+      for (;!e.atEnd();e.moveNext ())
+      {
+            var p = e.item ();
+            document.write("<tr>");
+            document.write("<td>" + p.Caption + "</td>");
+            document.write("<td>" + p.Description + "</td>");
+            document.write("<td>" + p.DHCPEnabled + "</td>");
+            document.write("<td>" + p.DHCPServer + "</td>");
+            document.write("<td>" + p.DNSDomain + "</td>");
+            document.write("<td>" + p.DNSHostName + "</td>");
+            if (p.IPAddress!=null ) 
+                        document.write("<td>" + p.IPAddress(0) + "</td>");
+                  else
+                        document.write("<td></td>");
+            document.write("</tr>");
+      }
+      document.write("</table>");
+
+function dispHeading()
+{
+      document.write("<thead>");
+      document.write("<td>Caption</td>");
+      document.write("<td>Description</td>");
+        document.write("<td>DHCPEnabled</td>");
+      document.write("<td>DHCPServer</td>");
+      document.write("<td>DNSDomain</td>");
+      document.write("<td>DNSHostName</td>");
+      document.write("<td>IPAddress</td>");
+      document.write("</thead>");
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>

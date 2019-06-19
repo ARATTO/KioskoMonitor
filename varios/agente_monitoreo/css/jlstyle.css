@@ -1,0 +1,17 @@
+.minitxt {
+
+	font-size:0.8em;
+
+}
+
+.alertaOk{
+	color: green;
+}
+
+.alertaW{
+	color: orange;
+}
+
+.alertaE{
+	color: red;
+}
