@@ -28,7 +28,7 @@ var port=process.env.PORT || 3000; //this is for heroku
 var mysql = require('mysql');
 
 //port is optional
-var pool= mysql.createPool({ //conexion a base de datos mysql  192.168.8.100
+var pool= mysql.createPool({ //conexion a base de datos mysql  IP_MYSQL
   host     : dbIp.dbServer,
   user     : dbIp.user,
   password : dbIp.pass,
@@ -90,32 +90,36 @@ router.route('/login')
 
     });
 
-   	router.get('/logout', function(req, res) {
-  		req.session.destroy();
-  		res.redirect('/login');
-	});
+router.get('/logout', function(req, res) {
+	req.session.destroy();
+	res.redirect('/login');
+});
 
-   	router.get('/username', function(req, res) {
-  		sess=req.session;
-  		//res.send(JSON.stringify({ myUser: "olivares" }));
-  		res.json({myUserName:sess.username,myUserId:sess.userid});
-	});	
-
+router.get('/username', function(req, res) {
+ 	sess=req.session;
+	//res.send(JSON.stringify({ myUser: "olivares" }));
+	res.json({myUserName:sess.username,myUserId:sess.userid});
+});	
 
 
 app.use('/',router);
+//app.use('/usuario',require(__dirname + '/public/templates/usuario'));
 app.use(express.static(__dirname + '/public'));//movido
 
 
-/*app.use(function(req, res, next) {
-	if(!req.session){
-    	res.redirect('/login');	
-    	//res.sendFile(__dirname +'/public/login.html');		
-	}else{
-		next();
-		//res.sendFile(__dirname +'/public/index.html');	
-	}
-});*/
+/////////////////////////////////
+// MOTTO  v2
+/////////////////////////////////
+router.get('/usuario/verUsuario',requireLogin, function(req, res) {
+	sess=req.session;
+	res.sendFile(__dirname +'/public/verUsuarios.html');
+	//res.send('Form');
+});
+/////////////////////////////////
+/////////////////////////////////
+
+
+
 
 function requireLogin (req, res, next) {
 	sess=req.session;
@@ -125,6 +129,8 @@ function requireLogin (req, res, next) {
     next();
   }
 };
+
+
 
 //Cargando listado de usuarios en memoria
 	pool.getConnection(function(err, connection) { 
