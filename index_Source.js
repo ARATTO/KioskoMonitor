@@ -52,6 +52,12 @@ var pool= mysql.createPool({ //conexion a base de datos mysql  IP_MYSQL
 	var sess; //variable que guarda las sesiones activas
 //-------------------------------
 
+//////////////////////
+//// Routes
+//////////////////////
+app.use(require('./routes'));
+//////////////////////
+//////////////////////
 
 
 
@@ -110,11 +116,7 @@ app.use(express.static(__dirname + '/public'));//movido
 /////////////////////////////////
 // MOTTO  v2
 /////////////////////////////////
-router.get('/usuario/verUsuario',requireLogin, function(req, res) {
-	sess=req.session;
-	res.sendFile(__dirname +'/public/verUsuarios.html');
-	//res.send('Form');
-});
+
 /////////////////////////////////
 /////////////////////////////////
 
@@ -130,7 +132,12 @@ function requireLogin (req, res, next) {
   }
 };
 
+//////////////////////////////////
+//motto
+/////////////////////////////////
 
+/////////////////////////////////
+/////////////////////////////////
 
 //Cargando listado de usuarios en memoria
 	pool.getConnection(function(err, connection) { 
@@ -307,7 +314,7 @@ io.on('connection', function(socket){
 
 });
 
-
+/////Inicializando el servidor
 http.listen(port, function(){
   console.log('listening on *:'+port);
 });

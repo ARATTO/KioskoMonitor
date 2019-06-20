@@ -1,12 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="APP para el monitoreo de equipos y sus impresores, Version 1.0  2017">
+    <meta name="author" content="Jose Luis Olivares">
+    <meta name="email author" content="joseluiss_503@hotmail.com">
+
+    <title>Monitoreo de Kioscos -Admin Panel</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jlstyle.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/socket.io-1.4.5.js"></script>
+    <script type="text/javascript" src="js/handlebars-v4.js"></script>
+    <script type="text/javascript" src="js/setServerIp.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script> 
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/fn_printer_olivares.js"></script>    
+    <script type="text/javascript" src="js/fn_leerConfManagerErrorCode_olivares.js""></script>      
+    <script type="text/javascript" src="js/main.js"></script>
+
 </head>
+
 <body>
-    hola
+    <div >
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="index.html">KioskoMonitor v2.0 </a>
+
+            </div>
+            <!-- Top Menu Items -->
+            <!-- MOTTO-- 19/6/19 -->
+            <!-- MOTTO-- 19/6/19 -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span id="spnUserName">Usuario</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> My Id: <span id="spnUserId"></span>  </a>
+                        </li>
+                       
+                        
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                            <h1 class="page-header">                            
+                              &nbsp;&nbsp;Monitoreo <small>Kioscos El Salvador</small>
+                              <div class="pull-right"><img alt="Logo GBM" src="img/logo_gbm2.jpg"></div>
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <a href="index.html"><i class="fa fa-home"></i> Kioscos</a>
+                                </li>
+                            </ol>
+                        </div>
+                </div>
+                {{motto}}
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                   		<div class="row"> 
+                             <div id="divContenido">
+
+                                    <script id="tpl-usuarios" type="text/x-handlebars-template">
+                                        <div id="divLstUser" class="col-md-12">
+                                                <div class="panel panel-default">
+                                                  <!-- Default panel contents -->
+                                                  <div class="panel-heading"><strong>Listado de Usuarios</strong><div class="pull-right small">{{myDateTime}}</div></div>
+                                          <div class="panel-body">
+                                                      <!-- Table -->
+                                                      
+                                                      {{usersInfo}}
+                                                      <table id="tblUsuarios" class="table table-hover">
+                                                            <thead>
+                                                              <tr>
+                                                                  <th>#</th>
+                                                                <th>IP</th>
+                                                                <th>Nombre</th>
+                                                                <th>Ubicaci&oacute;n</th>
+                                                                <th>Status</th>
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            {{#each this }}
+                                                                  <tr id="filaEquipoOk{{ipID}}">
+                                                                    <td>{{indiceMas1 @index}}</td>
+                                                                    <td>{{ip}}</td>
+                                                                    <td>{{nombreEquipo}}</td>
+                                                                    <td>{{ubicacion}}</td>
+                                                                    <td>{{status}}</td>
+                                                                  </tr>
+                                                            {{/each}} 
+                                                            </tbody>			
+                                                      </table>
+                                          </div>
+                                          <div class="panel-footer"></div>      
+                                                </div>
+                                        </div>
+                                  
+                             </div> <!--  /divContenido -->
+                         </div> <!-- end Row -->
+
+                      <div class="row">
+                            <div id="divInvEquipo"></div>
+                      </div>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+     <script id="tpl-detalleEquipo" type="text/x-handlebars-template">
+	 {{#with this}}
+		<div id="divDetalleEquipo" class="col-md-6">	 
+			  <div class="panel panel-primary">
+				<div class="panel-heading">
+				  <h3 class="panel-title"><strong>Detalle del equipo: </strong> <span class="badge">{{ip}} </span>  </h3> 
+				</div>
+				<div class="panel-body">
+				  <p><strong>Nombre: </strong> {{nombre}}</p>
+				  <p><strong>IP: </strong>{{ip}} &nbsp; &nbsp; Cliente Monitoreo: <span id="detalle{{ipID}}" class="glyphicon glyphicon-ban-circle alertaE"> </span></p>
+				  <p><strong>S/N: </strong>{{serie}} </p>
+				  <p><strong>Ubicaci&oacute;n: </strong>{{ubicacion}} </p>
+				  <p><strong>Contacto: </strong>{{contacto}} </p>
+				  <p><strong>Tel&eacute;fono: </strong>{{telefono}} </p>
+				  <p><strong>Email: </strong>{{email}}</p>
+				</div>
+			  </div>
+		</div>
+		<div id="divDetallePrinter" class="col-md-6">	  
+			  <div class="panel panel-primary">
+				<div class="panel-heading">
+				  <h3 class="panel-title"><strong>Detalle del Impresor: </strong> <span class="badge"> Default</span></h3> 
+				</div>
+				<div class="panel-body" id="prnBody{{ipID}}" >
+					<p><strong>Nombre: </strong><span id="prnName{{ipID}}"></span> </p>
+					<div class="pull-right">
+						<i id="prnIco{{ipID}}" class="fa fa-refresh fa-spin  fa-fw"></i>
+						<span class="sr-only">Loading...</span>&nbsp;				
+						<img src="img/printer_generic.png" id="prnImg{{ipID}}" class="img-responsive" alt="Priner Image">
+					</div>						
+					<p><strong>Estado: </strong> <span id="prnStatus{{ipID}}"></span> </p> 
+					<p><strong>Error detectado: </strong> <span id="prnError{{ipID}}"></span></p>
+					<p><strong>Informaci&oacute;n del Error: </strong> <span id="prnExtendedError{{ipID}}"></span></p>
+					<p><strong>Descripci&oacute;n: </strong><span id="prnDescription{{ipID}}"></span></p>	
+          <br><br><br>			
+				</div>
+			  </div>	
+		</div>								
+	{{/with}}
+</script>
+
+<!-- 09/11/20017-->
+<script id="tpl-infoEquipo" type="text/x-handlebars-template">
+    <div id="divMostrarInvEquipo" class="">  
+      <div class="col-md-6"> 
+          <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Sistema Operativo </strong> </h3> 
+          </div>
+          
+          <div class="panel-body" id="equipo{{ipID}}" >
+            <p><strong>Nombre equipo: </strong>{{cpu.NombrePc}}</p> 
+            <p><strong>Sistema Operativo: </strong>{{os.Nombre}}</p> 
+            <p><strong>Arquitectura: </strong>{{os.Arquitect}}</p>  
+            <p><strong>Version: </strong>{{os.Version}}</p> 
+            <p><strong>Estado: </strong>{{os.Estado}}</p>                                     
+            <p><strong>Cpu: </strong>{{cpu.Nombre}}</p>   
+          </div>
+          </div>
+      </div>
+      <div class="col-md-6"> 
+          <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Almacenamiento</strong> </h3> 
+          </div>
+          
+          <div class="panel-body" id="equipo{{ipID}}" >
+            {{#each detDisk}}
+            <p class="text-center"> <strong> Drive {{ indiceMas1 @index}}</strong> </p>
+            <p><strong>Fabricante: </strong>{{{Fabricante}}}</p>
+            <p><strong>Modelo </strong>{{{Modelo}}}</p>
+            <p><strong>Capacidad (GB): </strong>{{{Size}}}</p>
+            <p><strong>Estado: </strong>{{{Estado}}}</p>
+            <p><strong>Descripci&oacute;n: </strong>{{{Descripcion}}}</p>   
+            <p><strong>Errores: </strong>{{leerErrorCode CodigoError}};</p>                      
+            {{/each}} 
+          </div>
+          </div>
+      </div> 
+      <div class="col-md-6"> 
+          <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Memoria</strong> </h3> 
+          </div>
+          
+          <div class="panel-body" id="equipo{{ipID}}" >
+            {{#each detMem}}
+            <p class="text-center"><strong>Slot {{ indiceMas1 @index}}</strong></p>
+            <p><strong>Ubicaci&oacute;n: </strong>{{{Ubicacion}}}</p>
+            <p><strong>Fabricante: </strong>{{{Fabricante}}}</p>
+            <p><strong>Capacidad (MB): </strong>{{{Capacidad}}}</p>
+            <p><strong>Estado: </strong>{{{Estado}}}</p>
+            {{/each}} 
+          </div>
+          </div>
+      </div>   
+
+    </div>
+</script> 
+<!-- fin de bloque de actualizacion-->
+	<script id="tpl-equiposAlarmados" type="text/x-handlebars-template">
+		<div id="divLstAlarmados" class="col-md-12">
+				<div class="panel panel-default">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading"><strong>Listado de Equipos alarmados</strong> <div class="pull-right  small">{{myDateTime}}</div></div>
+				  <div class="panel-body">
+              <!-- Table -->
+    				  <table id="tblEquiposAlertados" class="table table-hover">
+    						<thead>
+    						  <tr>
+                  <th>#</th>
+    							<th>IP</th>
+    							<th>Ubicaci&oacute;n</th>
+    							<th>Alerta Impresor</th>
+    						  </tr>
+    						</thead>
+    						<tbody>
+    						{{#each this }}
+    							  <tr id="prnAlarma{{ipID}}">
+                    				<td>{{indiceMas1 @index}}</td>
+    								<td>{{ip}}</td>
+    								<td>{{strUbicacion}}</td>
+    								<td>{{strAlertaPrinter}}</td>
+    							  </tr>
+    						{{/each}} 
+    						</tbody>			
+    				  </table>
+          </div>
+          <div class="panel-footer"></div>
+				</div>
+		</div>	
+	</script>  
+ 	<script id="tpl-equiposOk" type="text/x-handlebars-template">
+		<div id="divLstEquiposOk" class="col-md-12">
+				<div class="panel panel-default">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading"><strong>Listado de Equipos sin alertas</strong><div class="pull-right small">{{myDateTime}}</div></div>
+          <div class="panel-body">
+    				  <!-- Table -->
+    				  <table id="tblEquiposOk" class="table table-hover">
+    						<thead>
+    						  <tr>
+                  				<th>#</th>
+    							<th>IP</th>
+    							<th>Nombre</th>
+    							<th>Ubicaci&oacute;n</th>
+    							<th>Status</th>
+    						  </tr>
+    						</thead>
+    						<tbody>
+    						{{#each this }}
+    							  <tr id="filaEquipoOk{{ipID}}">
+                    				<td>{{indiceMas1 @index}}</td>
+    								<td>{{ip}}</td>
+    								<td>{{nombreEquipo}}</td>
+    								<td>{{ubicacion}}</td>
+    								<td>{{status}}</td>
+    							  </tr>
+    						{{/each}} 
+    						</tbody>			
+    				  </table>
+          </div>
+          <div class="panel-footer"></div>      
+				</div>
+		</div>	
+	</script>
+  <script id="tpl-equiposOffLine" type="text/x-handlebars-template">
+    <div id="divLstOffLine" class="col-md-12">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><strong>Listado de Equipos - Heartbeat &nbsp;</strong> <button type="button" class="btn btn-primary btn-sm" onclick="app.mostrarEquiposOffLine();"><i class="fa fa-refresh" aria-hidden="true"></i>
+</button><div class="pull-right  small">{{myDateTime}}</div></div>
+          <div class="panel-body">
+              <!-- Table -->
+              <table id="tblEquiposOffLine" class="table table-hover">
+                <thead>
+                  <tr>
+                  <th>#</th>
+                  <th>IP</th>
+                  <th>Ubicaci&oacute;n</th>
+                  <th>Heartbeat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each this }}
+                    <tr id="equipoOff{{ipID}}">
+                    <td>{{indiceMas1 @index}}</td>
+                    <td>{{ip}}</td>
+                    <td>{{ubicacion}}</td>
+                    <td><i id="ipOff{{ipID}}" class="fa fa-refresh fa-spin  fa-fw" aria-hidden="true" title="Pinging"></i></td>
+                    </tr>
+                {{/each}} 
+                </tbody>      
+              </table>
+          </div>
+          <div class="panel-footer"></div>
+        </div>
+    </div>  
+  </script>   
+ <script type="text/javascript" charset="utf-8" async defer>
+    $( document ).ready(function() {
+          $.get("/username", function (data) {
+            $("#spnUserName").html(data.myUserName);
+            $("#spnUserId").html(data.myUserId);
+          });
+    });
+  </script>
 </body>
+
 </html>
