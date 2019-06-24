@@ -1,6 +1,46 @@
-var express= require('express');
+/////////////////////////////////////
+///////motto
+////////////////////////////////////
+const express = require('express');
+const exphbs = require('express-handlebars');
+const path = require('path');
+const app = express();
+////////////////////////////////////
+//configuracion
+app.set('views', path.join(__dirname, 'views'));
+app.engine('.hbs',exphbs({
+	defaultLayout: 'main',
+	layoutsDir: path.join(app.get('views'), 'layouts'),
+	partialsDir: path.join(app.get('views'), 'partials'),
+	extname: '.hbs',
+	helpers: require('./lib/handlebars'),
+}));
+app.set('view engine', '.hbs');
+////////////////////////////////////
+//// Middlewares
+
+//app.use(express.urlencoded({extended: false}));
+//app.use(express.json());
+
+////////////////////////////////////
+//// Global Variables
+
+
+app.use((req, res, next)=>{
+	
+	next();
+
+});
+
+
+////////////////////////////////////
+//// Routes
+app.use(require('./routes'));
+app.use('/kiosko', require('./routes/kiosko'));
+app.use('/usuario',require('./routes/usuario'));
+////////////////////////////////////
+
 var session = require('express-session');//manejo sesiones
-var app = express();
 var http = require('http').Server(app);
 var ping = require('ping'); //ping network
 var io = require('socket.io')(http);
@@ -53,9 +93,7 @@ var pool= mysql.createPool({ //conexion a base de datos mysql  IP_MYSQL
 //-------------------------------
 
 //////////////////////
-//// Routes
-//////////////////////
-app.use(require('./routes'));
+
 //////////////////////
 //////////////////////
 
@@ -119,9 +157,6 @@ app.use(express.static(__dirname + '/public'));//movido
 
 /////////////////////////////////
 /////////////////////////////////
-
-
-
 
 function requireLogin (req, res, next) {
 	sess=req.session;

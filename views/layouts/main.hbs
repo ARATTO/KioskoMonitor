@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="APP para el monitoreo de equipos y sus impresores, Version 2.0  2019">
+    <link rel="shortcut icon" href="../../public/img/mini-logo-ba.jpg">
+    <meta name="author" content="Jose Luis Olivares">
+    <meta name="author" content="Dario Roman Araya">
+    <meta name="email author" content="joseluiss_503@hotmail.com">
+    <meta name="email author" content="dario_aratto@hotmail.com">
+
+    <title>Kiosko Monitor</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- Morris Charts CSS -->
+    <link href="../../css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/jlstyle.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../js/socket.io-1.4.5.js"></script>
+    <script type="text/javascript" src="../../js/handlebars-v4.js"></script>
+    <script type="text/javascript" src="../../js/setServerIp.js"></script>
+    <script type="text/javascript" src="../../js/jquery.js"></script> 
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="../../js/fn_printer_olivares.js"></script>    
+    <script type="text/javascript" src="../../js/fn_leerConfManagerErrorCode_olivares.js"></script>      
+    <script type="text/javascript" src="../../js/main.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">GBM</a>
+                </div>
+            
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">KIOSKO MONITOR V2.0 <span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/usuario/verusuarios"><i class="fa fa-users"></i> USUARIOS</a></li>
+                    <li><a href="/kiosko/verkioskos"><i class="fa fa-desktop"></i> KIOSKOS</a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Usuario <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa fa-fw fa-user"></i> My Id: <span id="spnUserId"></span></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Cerrar sesion</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+    </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <a href="../../index.html"><i class="fa fa-home"></i> Inicio</a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                   		<div class="row"> 
+                             <div id="divContenido">
+
+                                {{{ body }}}
+                                  
+                             </div> <!--  /divContenido -->
+                         </div> <!-- end Row -->
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->   
+
+</body>
+</html>

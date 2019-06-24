@@ -6,11 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="APP para el monitoreo de equipos y sus impresores, Version 1.0  2017">
+    <meta name="description" content="APP para el monitoreo de equipos y sus impresores, Version 2.0  2019">
+    <link rel="shortcut icon" href="img/mini-logo-ba.jpg">
     <meta name="author" content="Jose Luis Olivares">
+    <meta name="author" content="Dario Roman Araya">
     <meta name="email author" content="joseluiss_503@hotmail.com">
+    <meta name="email author" content="dario_aratto@hotmail.com">
 
-    <title>Monitoreo de Kioscos -Admin Panel</title>
+    <title>Kiosko Monitor</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,39 +47,42 @@
 
 <body>
     <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="container-fluid">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">GBM</a>
+                      </div>
+                  
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="index.html">KIOSKO MONITOR V2.0 <span class="sr-only">(current)</span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><a href="/usuario/verusuarios"><i class="fa fa-users"></i> USUARIOS</a></li>
+                          <li><a href="/kiosko/verkioskos"><i class="fa fa-desktop"></i> KIOSKOS</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Usuario <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#"><i class="fa fa-fw fa-user"></i> My Id: <span id="spnUserId"></span></a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Cerrar sesion</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                
 
-                <a class="navbar-brand" href="index.html">Sistema de Monitoreo de Kioscos v1.0 </a>
 
-            </div>
-            <!-- Top Menu Items -->
-            <!-- MOTTO-- 19/6/19 -->
-            <!-- MOTTO-- 19/6/19 -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span id="spnUserName">Usuario</span> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> My Id: <span id="spnUserId"></span>  </a>
-                        </li>
-                       
-                        
-                        <li class="divider"></li>
-                        <li>
-                            <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -105,13 +111,9 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                          <img src="img/logoba.png" class="img-responsive pull-left" alt="Logo Cliente"> &nbsp;&nbsp;Monitoreo <small>Kioscos El Salvador</small>
-                          <div class="pull-right"><img alt="Logo GBM" src="img/logo_gbm2.jpg"></div>
-                        </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <a href="index.html"><i class="fa fa-dashboard"></i> Kioscos</a>
+                                <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
                             </li>
                         </ol>
                     </div>
