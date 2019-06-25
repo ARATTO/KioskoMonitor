@@ -5,12 +5,14 @@ const router = express.Router();
 const pool = require('../database');
 ////prefijo '/usuario'
 
+//Ver Usuarios
 router.get('/verUsuarios', (req, res) => {
     res.render('usuario/verusuarios');
 });
 
-router.post('/verUsuarios', (req, res) =>{
-    res.send('recibido');
+//Agregar Usuario
+router.get('/agregarUsuario', (req, res) => {
+    res.render('usuario/agregarusuario');
 });
 
 

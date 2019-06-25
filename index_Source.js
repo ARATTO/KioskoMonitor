@@ -2,6 +2,8 @@
 ///////motto
 ////////////////////////////////////
 const express = require('express');
+const morgan = require('morgan');
+const bodyP = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const app = express();
@@ -16,11 +18,15 @@ app.engine('.hbs',exphbs({
 	helpers: require('./lib/handlebars'),
 }));
 app.set('view engine', '.hbs');
+
 ////////////////////////////////////
 //// Middlewares
 
-//app.use(express.urlencoded({extended: false}));
-//app.use(express.json());
+///Comentar linea inferiror para Quitar mensajes DEV de consola
+//app.use(morgan('dev'));
+
+app.use(bodyP.urlencoded({extended: false}));
+app.use(bodyP.json());
 
 ////////////////////////////////////
 //// Global Variables
@@ -52,11 +58,11 @@ var router = express.Router(); //express4
 //---08/09/2017
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 //----------
 
 //--18/09/2017--- Sesiones
-	app.use(session({secret: '7olivares77',resave:false, saveUninitialized: true}));
+	app.use(session({secret: 'gbmsv',resave:false, saveUninitialized: true}));
 //-----
 
 /* Linea original, server y pagina html a mostrar estan  en misma carpeta*/
