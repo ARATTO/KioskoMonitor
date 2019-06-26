@@ -6,8 +6,10 @@ const pool = require('../database');
 ////prefijo '/usuario'
 
 //Ver Usuarios
-router.get('/verUsuarios', (req, res) => {
-    res.render('usuario/verusuarios');
+router.get('/verUsuarios', async (req, res) => {
+    const usuarios = await pool.query('SELECT * FROM tblusuario');
+    console.log(usuarios);
+    res.render('usuario/verusuarios', {usuarios});
 });
 
 //Agregar Usuario

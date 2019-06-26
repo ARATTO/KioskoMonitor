@@ -23,7 +23,7 @@ app.set('view engine', '.hbs');
 //// Middlewares
 
 ///Comentar linea inferiror para Quitar mensajes DEV de consola
-//app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 app.use(bodyP.urlencoded({extended: false}));
 app.use(bodyP.json());
@@ -125,12 +125,12 @@ router.route('/login')
     .post(function(req, res) {
     		sess = req.session;
     	  var post = req.body;
-    	  var ssnIdusuario=sesionUsuario.buscar(usersInfo,post.loginUsuario,post.loginPassword);
-		if(ssnIdusuario!=-1)//si existe el usuario y password
+    	  var ssnemail=sesionUsuario.buscar(usersInfo,post.loginUsuario,post.loginPassword);
+		if(ssnemail!=-1)//si existe el usuario y password
 		{
 			//usuariosConectados.push(post.loginUsuario,post.loginPassword);//agregando al array de ususarios conectados
 			sess.username=post.loginUsuario;
-			sess.userid=ssnIdusuario;
+			sess.email=ssnemail;
 			res.redirect('/index.html');
 
 		}else {
@@ -148,7 +148,7 @@ router.get('/logout', function(req, res) {
 router.get('/username', function(req, res) {
  	sess=req.session;
 	//res.send(JSON.stringify({ myUser: "olivares" }));
-	res.json({myUserName:sess.username,myUserId:sess.userid});
+	res.json({myUserName:sess.username,myUserId:sess.email});
 });	
 
 
@@ -182,7 +182,7 @@ function requireLogin (req, res, next) {
 
 //Cargando listado de usuarios en memoria
 	pool.getConnection(function(err, connection) { 
-		var queryUsers="Select idusuario, userid, password from tblusuario";
+		var queryUsers="Select idusuario, email, password from tblusuario";
 		  // Use the connection
 		  connection.query(queryUsers,function(err, rows) {
 		  		if(err){
@@ -201,8 +201,8 @@ function requireLogin (req, res, next) {
 
 var  sesionUsuario={buscar: function(arrayObjeto,myUser,myPass){			  	
 		for(var p = 0; p < arrayObjeto.length; p++) {
-		   if(arrayObjeto[p].userid===myUser.trim() && arrayObjeto[p].password===myPass.trim()) {
-		     return arrayObjeto[p].idusuario;
+		   if(arrayObjeto[p].email===myUser.trim() && arrayObjeto[p].password===myPass.trim()) {
+		     return arrayObjeto[p].email;
 		   }
 		}
 

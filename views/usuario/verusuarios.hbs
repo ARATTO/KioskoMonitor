@@ -8,6 +8,26 @@
                     
                     <a class="btn btn-default" href="/usuario/agregarUsuario" role="button">Agregar Usuario</a>
                     
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each usuarios}}
+                                    <tr>
+                                        <th scope="row">{{idusuario}}</th>
+                                        <td>{{nombre_usuario}}</td>
+                                        <td>{{email}}</td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    
+
                 </div>
             </div>
         </div>

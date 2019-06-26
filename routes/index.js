@@ -4,8 +4,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
-
-
 ///////////////////
 // USUARIO
 ////////////////////
@@ -22,8 +20,10 @@ router.post('/usuario/agrearUsuario', async (req, res) => {
         password
     };
     await pool.query('INSERT INTO tblusuario SET ?', [newUser]);
-    console.log(nombre);
-    res.send('recibido');
+    //console.log(nombre);
+    res.redirect('/usuario/verUsuarios');
+
 });
+
 
 module.exports = router;
