@@ -1,33 +1,63 @@
 {{> nav_verusuarios}}
-<div class="container p-4">
+<div class="container p-6">
     <div class="row">
-        <div class="col-md-4">
+        <dir class="pull-right">
+            <a class="btn btn-success" href="/usuario/agregarUsuario" role="button">Agregar Usuario</a>
+        </dir>
+        {{#if success }}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mx-auto">
+                        <div class="alert alert-success" role="alert">
+                            {{success}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
-                   
-                    
-                    <a class="btn btn-default" href="/usuario/agregarUsuario" role="button">Agregar Usuario</a>
-                    
-                        <table class="table">
+                <div class="card-body">  
+                    <table class="table">
                             <thead class="thead-dark">
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Correo</th>
+                                <th scope="col">Creacion</th>
+                                <th scope="col">Acciones</th>
                                 </tr>
-                            </thead>
+                            </thead>                  
                             <tbody>
                                 {{#each usuarios}}
-                                    <tr>
-                                        <th scope="row">{{idusuario}}</th>
-                                        <td>{{nombre_usuario}}</td>
-                                        <td>{{email}}</td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row">{{idusuario}}</th>
+                                    <td>{{nombre_usuario}}</td>
+                                    <td>{{email}}</td>
+                                    <td>{{fecha_creacion}}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            
+                                                <a href="/usuario/editarusuario/{{idusuario}}" class="btn btn-info">Editar</a>
+                                                <a href="/usuario/borrarusuario/{{idusuario}}" class="btn btn-danger">Borrar</a>
+                                            
+                                        </div>
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <div class="col-md-12 mx-auto">
+                                    <div class="alert alert-danger" role="alert">
+                                        NO HAY USUARIOS EN EL SISTEMA. 
+                                        <br>
+                                        <a href="/usuario/agregarUsuario" class="alert-link">CREA UN USUARIO NUEVO</a>
+                                    </div>
+                                </div>
                                 {{/each}}
                             </tbody>
-                        </table>
-                    
-
+                    </table>
                 </div>
             </div>
         </div>

@@ -16,6 +16,27 @@ router.get('/verUsuarios', async (req, res) => {
 router.get('/agregarUsuario', (req, res) => {
     res.render('usuario/agregarusuario');
 });
-
+//Borrar Usuario
+router.get('/borrarusuario/:idusuario', async (req, res) => {
+    //console.log(req.params.idusuario);
+    const { idusuario } = req.params;
+    if (idusuario != 1) {
+        await pool.query('DELETE FROM tblusuario WHERE idusuario = ?', [idusuario]);
+    }
+    res.redirect('/usuario/verusuarios');
+});
+//Editar Usuario
+router.get('/editarusuario/:idusuario', async (req, res) => {
+    //console.log(req.params.idusuario);
+    const { idusuario } = req.params;
+    if (idusuario != 1) {
+        //res.send('prueba');
+        const usuario = await pool.query('SELECT * FROM tblusuario WHERE idusuario = ?', [idusuario]);
+        //console.log(usuario[0]);
+        res.render('usuario/editarusuario', {usuario: usuario[0]});
+    }else{
+        res.redirect('/usuario/verusuarios');
+    }
+});
 
 module.exports = router;

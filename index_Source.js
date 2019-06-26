@@ -6,6 +6,9 @@ const morgan = require('morgan');
 const bodyP = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
+
 const app = express();
 ////////////////////////////////////
 //configuracion
@@ -24,16 +27,25 @@ app.set('view engine', '.hbs');
 
 ///Comentar linea inferiror para Quitar mensajes DEV de consola
 app.use(morgan('dev'));
+//Sesiones
+app.use(session({
+	secret: 'gbmsv',
+	resave:false, 
+	saveUninitialized: true}
+));
+//Mansajes frontend
+app.use(flash());
 
 app.use(bodyP.urlencoded({extended: false}));
 app.use(bodyP.json());
+
 
 ////////////////////////////////////
 //// Global Variables
 
 
 app.use((req, res, next)=>{
-	
+	app.locals.success = req.flash('success');
 	next();
 
 });
@@ -46,7 +58,6 @@ app.use('/kiosko', require('./routes/kiosko'));
 app.use('/usuario',require('./routes/usuario'));
 ////////////////////////////////////
 
-var session = require('express-session');//manejo sesiones
 var http = require('http').Server(app);
 var ping = require('ping'); //ping network
 var io = require('socket.io')(http);
@@ -62,7 +73,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 //----------
 
 //--18/09/2017--- Sesiones
-	app.use(session({secret: 'gbmsv',resave:false, saveUninitialized: true}));
+	
 //-----
 
 /* Linea original, server y pagina html a mostrar estan  en misma carpeta*/
