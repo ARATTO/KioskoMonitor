@@ -14,8 +14,8 @@ const pool = require('../database');
 //Agregar usuario
 router.post('/usuario/agrearUsuario', async (req, res) => {
     const {nombre_usuario, email, password} = req.body;
+    //Crear usuario que NO es admin: idPerfil = 0
     idPerfil = 0;
-    //fecha_creacion = new Date().toISOString();
     const newUser = {
         nombre_usuario,
         email,

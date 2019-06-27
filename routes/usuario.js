@@ -23,6 +23,7 @@ router.get('/borrarusuario/:idusuario', async (req, res) => {
     if (idusuario != 1) {
         await pool.query('DELETE FROM tblusuario WHERE idusuario = ?', [idusuario]);
     }
+    req.flash('success','Usuario eliminado con exito');
     res.redirect('/usuario/verusuarios');
 });
 //Editar Usuario

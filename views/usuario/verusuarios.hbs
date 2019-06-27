@@ -39,11 +39,8 @@
                                     <td>{{email}}</td>
                                     <td>{{fecha_creacion}}</td>
                                     <td>
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            
-                                                <a href="/usuario/editarusuario/{{idusuario}}" class="btn btn-info">Editar</a>
-                                                <a href="/usuario/borrarusuario/{{idusuario}}" class="btn btn-danger">Borrar</a>
-                                            
+                                        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+                                            {{#isAdminAcciones idPerfil idusuario}} {{/isAdminAcciones}}
                                         </div>
                                     </td>
                                 </tr>
