@@ -36,8 +36,16 @@ router.post('/usuario/agrearUsuario', async (req, res) => {
             password,
             idPerfil,
         };
-        await pool.query('INSERT INTO tblusuario SET ?', [newUser]);
-        req.flash('success','Usuario guardado con exito');
+        //console.log(newUser.email);
+        const existe = await pool.query('SELECT * FROM tblusuario WHERE email = ?', [newUser.email]);
+        console.log(existe.length);
+        if(existe.length > 0){
+            req.flash('success','El correo que desea ingresar ya esta asignado para otro usuario.');
+        }else{
+            await pool.query('INSERT INTO tblusuario SET ?', [newUser]);
+            req.flash('success','Usuario guardado con exito');
+        }
+        
         //console.log(nombre);
         res.redirect('/usuario/verusuarios');
     }
