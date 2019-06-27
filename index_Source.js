@@ -49,6 +49,7 @@ app.use(bodyP.json());
 
 app.use((req, res, next)=>{
 	app.locals.success = req.flash('success');
+
 	next();
 
 });
@@ -180,6 +181,7 @@ app.use(express.static(__dirname + '/public'));//movido
 
 function requireLogin (req, res, next) {
 	sess=req.session;
+	console.log(req.session);
   if (!sess.username) {
     res.redirect('/login');
   } else {
