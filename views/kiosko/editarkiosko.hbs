@@ -1,0 +1,47 @@
+{{> nav_editarkiosko}}
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/kiosko/editarKiosko/{{kiosko.idequipo}}" method="post">
+                        <h3><span class="label label-default">Datos de Kiosko</span></h3>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" value="{{kiosko.nombre}}" name="nombre" placeholder="Nombre de kiosko" autofocus required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="serie">Serie</label>
+                            <input type="text" class="form-control" value="{{kiosko.serie}}" name="serie" placeholder="serie de kiosko" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="ip">IP</label>
+                            <input type="text" class="form-control" value="{{kiosko.ip}}" name="ip" placeholder="ip de kiosko" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicacion</label>
+                            <input type="textarea" class="form-control" value="{{kiosko.ubicacion}}" name="ubicacion" placeholder="ubicacion de kiosko" required="true">
+                        </div>
+                        <hr>
+                        <h3><span class="label label-default">Datos de Contacto</span></h3>
+                        <div class="form-group">
+                            <label for="contacto">Nombre</label>
+                            <input type="text" class="form-control" value="{{kiosko.contacto}}" name="contacto" placeholder="nombre de contacto" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="contacto">Telefono</label>
+                            <input type="text" class="form-control telefono" value="{{kiosko.telefono}}" name="telefono" placeholder="telefono de contacto" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo</label>
+                            <input type="email" class="form-control" value="{{kiosko.email}}" name="email" aria-describedby="emailHelp" placeholder="ejemplo@correo.com" required="true">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning btn-block">Actualizar Kiosko</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

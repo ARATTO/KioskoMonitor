@@ -45,5 +45,54 @@ router.post('/usuario/editarUsuario/:idusuario', async (req, res) => {
 
 });
 
+///////////////////
+// KIOSKO
+////////////////////
+
+//------------
+//POST
+//------------
+//Agregar kiosko
+router.post('/kiosko/agrearKiosko', async (req, res) => {
+    const {nombre, serie, ip, ubicacion, contacto, telefono, email} = req.body;
+    
+    ipID = ip.split('.').join("");
+    console.log(ipID);
+    const newKiosko = {
+        nombre, 
+        serie, 
+        ip, 
+        ipID,
+        ubicacion, 
+        contacto, 
+        telefono, 
+        email
+    };
+    await pool.query('INSERT INTO tblequipo SET ?', [newKiosko]);
+    req.flash('success','Kiosko guardado con exito');
+    res.redirect('/kiosko/verkioskos');
+
+});
+//Editar kiosko
+router.post('/kiosko/editarKiosko/:idequipo', async (req, res) => {
+    const { idequipo } = req.params;
+    const {nombre, serie, ip, ubicacion, contacto, telefono, email} = req.body;
+    ipID = ip.split('.').join("");
+    const editKiosko = {
+        nombre, 
+        serie, 
+        ip,
+        ipID, 
+        ubicacion, 
+        contacto, 
+        telefono, 
+        email
+    };
+    await pool.query('UPDATE tblequipo SET ? WHERE idequipo = ?', [editKiosko, idequipo]);
+    req.flash('success','Kiosko actualizado con exito');
+    //console.log(nombre);
+    res.redirect('/kiosko/verkioskos');
+
+});
 
 module.exports = router;
