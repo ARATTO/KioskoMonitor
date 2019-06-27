@@ -11,6 +11,9 @@ const session = require('express-session');
 
 const app = express();
 ////////////////////////////////////
+//tablas
+
+////////////////////////////////////
 //configuracion
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',exphbs({
