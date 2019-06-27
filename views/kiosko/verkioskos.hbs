@@ -1,0 +1,69 @@
+{{> nav_verkioskos}}
+<div class="container p-12">
+    <div class="row">
+        <dir class="pull-right">
+            <a class="btn btn-success" href="/usuario/agregarKiosko" role="button">Agregar Kiosko</a>
+        </dir>
+        {{#if success }}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mx-auto">
+                        <div class="alert alert-success" role="alert">
+                            {{success}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">  
+                    <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Serie</th>
+                                    <th scope="col">IP</th>
+                                    <th scope="col">Ubicacion</th>
+                                    <th scope="col">Contacto</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Creacion</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>                  
+                            <tbody>
+                                {{#each kioskos}}
+                                <tr>
+                                    <td>{{nombre}}</td>
+                                    <td>{{serie}}</td>
+                                    <td>{{ip}}</td>
+                                    <td>{{ubicacion}}</td>
+                                    <td>{{contacto}}</td>
+                                    <td>{{telefono}}</td>
+                                    <td>{{fecha_creacion}}</td>
+                                    <td>
+                                        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+                                            <a href='/usuario/editarusuario/{{idequipo}}' class='btn btn-info'>Editar</a>
+                                            <a href='/usuario/borrarusuario/{{idequipo}}' class='btn btn-danger'>Borrar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <div class="col-md-12 mx-auto">
+                                    <div class="alert alert-danger" role="alert">
+                                        NO HAY KIOSKOS EN EL SISTEMA. 
+                                        <br>
+                                        <a href="/kiosko/agregarKiosko" class="alert-link">CREA UN KIOSKO NUEVO</a>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

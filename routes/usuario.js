@@ -11,7 +11,6 @@ router.get('/verUsuarios', async (req, res) => {
     console.log(usuarios);
     res.render('usuario/verusuarios', {usuarios});
 });
-
 //Agregar Usuario
 router.get('/agregarUsuario', (req, res) => {
     res.render('usuario/agregarusuario');
