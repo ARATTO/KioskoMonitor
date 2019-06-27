@@ -80,7 +80,7 @@ router.post('/kiosko/agrearKiosko', async (req, res) => {
     } else {
         //Codigo aqui
         const {nombre, serie, ip, ubicacion, contacto, telefono, email} = req.body;
-    
+        //Quitar puntos de IP para el IpID
         ipID = ip.split('.').join("");
         console.log(ipID);
         const newKiosko = {

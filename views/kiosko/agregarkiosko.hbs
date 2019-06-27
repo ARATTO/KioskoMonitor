@@ -1,7 +1,7 @@
 {{> nav_agregarkiosko}}
-<div class="container p-4">
+<div class="container p-6 mx-auto">
     <div class="row">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-6 ">
             <div class="card">
                 <div class="card-body">
                     <form action="/kiosko/agrearKiosko" method="post">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="form-group">
                             <label for="ip">IP</label>
-                            <input type="text" class="form-control" name="ip" placeholder="ip de kiosko" required="true">
+                            <input type="text" class="form-control ip_address" name="ip" placeholder="ip de kiosko" required="true">
                         </div>
                         <div class="form-group">
                             <label for="ubicacion">Ubicacion</label>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <label for="contacto">Telefono</label>
-                            <input type="text" class="form-control telefono" name="telefono" placeholder="telefono de contacto" required="true">
+                            <input type="text" class="form-control phone" name="telefono" placeholder="telefono de contacto" required="true">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo</label>
@@ -45,3 +45,19 @@
         </div>
     </div>
 </div>
+<script>
+        $(document).ready(function(){
+            
+            $('.phone').mask('0000-0000');
+            
+            $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+                translation: {
+                'Z': {
+                    pattern: /[0-9]/, optional: true
+                }
+                }
+            });
+            $('.ip_address').mask('099.099.099.099');
+            
+        });
+</script>

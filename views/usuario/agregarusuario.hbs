@@ -1,7 +1,7 @@
 {{> nav_agregarusuario}}
-<div class="container p-4">
+<div class="container p-6 mx-auto">
     <div class="row">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <form action="/usuario/agrearUsuario" method="post">
@@ -15,7 +15,8 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" name="password" placeholder="Contraseña" required="true">
+                            <input type="password" pattern=".{6,12}" title="6 a 12 caracteres requeridos" class="form-control" name="password" placeholder="Contraseña" required="true">
+                            <span class="label label-info">6 a 12 caracteres requeridos</span>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success btn-block">Crear Usuario</button>
