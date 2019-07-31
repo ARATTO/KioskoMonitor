@@ -27,6 +27,9 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/jlstyle.css" rel="stylesheet">
 
+    <!-- Datatables -->
+    <link type="text/css" href="DataTables/datatables.css"/>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -40,8 +43,13 @@
     <!-- Bootstrap Core JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script> 
     <script type="text/javascript" src="js/fn_printer_olivares.js"></script>    
-    <script type="text/javascript" src="js/fn_leerConfManagerErrorCode_olivares.js""></script>      
+    <script type="text/javascript" src="js/fn_leerConfManagerErrorCode_olivares.js"></script>      
     <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- Datatables -->
+    <script type="text/javascript" src="/DataTables/datatables.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 
@@ -90,14 +98,95 @@
                         <a href="index.html"><i class="glyphicon glyphicon-list"></i> Kioskos</a>
                     </li> -->
                     <li class="active">
+                        <div class="search">
+                          <input type="text" id="busqueda" placeholder="Buscar ...">
+                          <i class="fa fa-search"></i>
+                        </div>
                         <a href="javascript:;" data-toggle="collapse" data-target="#lstKioskos"><i class="glyphicon glyphicon-list"></i> Kioscos <span class="badge" id="recuentoTotal">0</span><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="lstKioskos" class="collapse in">
-                            <li>
-                                <a href="#">Sin conexion</a>
+                            <li> 
+                              <a href="#">
+                                <div class="minitxt">
+                                  <span id="30" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.125<br> Kiosko Sucursal Merliot 30
+                                </div>
+                              </a>
                             </li>
-                            <li>
-                                <a href="#">Sin conexion</a>
+                            <li> 
+                              <a href="#"><div class="minitxt"><span id="31" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.126<br> Kiosko Universidad ESA 31</div></a>
                             </li>
+                            <li> 
+                              <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                            </li>
+                            <li> 
+                                <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                              </li>
+                              <li> 
+                                  <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                </li>
+                                <li> 
+                                    <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                  </li>
+                                  <li> 
+                                      <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                    </li>
+                                    <li> 
+                                        <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                      </li>
+                                      <li> 
+                                          <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                        </li>
+                                        <li> 
+                                            <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                          </li>
+                                          <li> 
+                                              <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                            </li>
+                                            <li> 
+                                                <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                              </li>
+                                              <li> 
+                                                  <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                </li>
+                                                <li> 
+                                                    <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                  </li>
+                                                  <li> 
+                                                      <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                    </li>
+                                                    <li> 
+                                                        <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                      </li>
+                                                      <li> 
+                                                          <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                        </li>
+                                                        <li> 
+                                                            <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                          </li>
+                                                          <li> 
+                                                              <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                            </li>
+                                                            <li> 
+                                                                <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                              </li>
+                                                              <li> 
+                                                                  <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                                </li>
+                                                                <li> 
+                                                                    <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                                  </li>
+                                                                  <li> 
+                                                                      <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                                    </li>
+                                                                    <li> 
+                                                                        <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                                      </li>
+                                                                      <li> 
+                                                                          <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.127<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                                        </li>
+                                                                        <li> 
+                                                                            <a href="#"><div class="minitxt"><span id="32" class="glyphicon glyphicon-ban-circle alertaE"></span>192.168.70.130<br> Kiosko Sucursal Manuel Enrique 32</div></a>
+                                                                          </li>
+
                         </ul>                        
                     </li>
                     
@@ -216,8 +305,6 @@
                                           </a>
                                       </div>
                                   </div>
-
-                                  
                              </div> <!--  /divContenido -->
                          </div> <!-- end Row -->
 
@@ -226,6 +313,7 @@
                       </div>
 
                     </div>
+
                 </div>
                 <!-- /.row -->
 
@@ -378,30 +466,30 @@
 				  <div class="panel-heading"><strong>Listado de Equipos sin alertas</strong><div class="pull-right small">{{myDateTime}}</div></div>
           <div class="panel-body">
     				  <!-- Table -->
-    				  <table id="tblEquiposOk" class="table table-hover">
+    				  <table id="tblEquiposOk" class="table table-striped table-bordered" style="width:100%">
     						<thead>
     						  <tr>
-                  				<th>#</th>
-    							<th>IP</th>
-    							<th>Nombre</th>
-    							<th>Ubicaci&oacute;n</th>
-    							<th>Status</th>
+                    <th>#</th>
+                    <th>IP</th>
+                    <th>Nombre</th>
+                    <th>Ubicaci&oacute;n</th>
+                    <th>Status</th>
     						  </tr>
     						</thead>
     						<tbody>
     						{{#each this }}
     							  <tr id="filaEquipoOk{{ipID}}">
-                    				<td>{{indiceMas1 @index}}</td>
-    								<td>{{ip}}</td>
-    								<td>{{nombreEquipo}}</td>
-    								<td>{{ubicacion}}</td>
-    								<td>{{status}}</td>
+                        <td>{{indiceMas1 @index}}</td>
+                        <td>{{ip}}</td>
+                        <td>{{nombreEquipo}}</td>
+                        <td>{{ubicacion}}</td>
+                        <td>{{status}}</td>
     							  </tr>
     						{{/each}} 
     						</tbody>			
     				  </table>
           </div>
-          <div class="panel-footer"></div>      
+          <div class="panel-footer"></div>
 				</div>
 		</div>	
 	</script>
@@ -446,6 +534,58 @@
           });
     });
   </script>
+  <script>
+    var table = $('#tblEquiposOk').DataTable();
+ 
+    new $.fn.dataTable.Buttons( table, {
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    } );
+    
+      table.buttons().container().appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
+      
+  </script>
+  <script>
+      $(document).ready(function(){
+        var busqueda = $('#busqueda'),
+        titulo = $('#lstKioskos li a');
+        $(titulo).each(function(){
+          var li = $(this);
+          //si presionamos la tecla
+          $(busqueda).keyup(function(){
+            //cambiamos a minusculas
+            this.value = this.value.toLowerCase();
+            //
+            var clase = $('.search i');
+            if($(busqueda).val() != ''){
+              $(clase).attr('class', 'fa fa-times');
+            }else{
+              $(clase).attr('class', 'fa fa-search');
+            }
+            if($(clase).hasClass('fa fa-times')){
+              $(clase).click(function(){
+                //borramos el contenido del input
+                $(busqueda).val('');
+                //mostramos todas las listas
+                $(li).parent().show();
+                //volvemos a añadir la clase para mostrar la lupa
+                $(clase).attr('class', 'fa fa-search');
+              });
+            }
+            //ocultamos toda la lista
+            $(li).parent().hide();
+            //valor del h3
+            var txt = $(this).val();
+            //si hay coincidencias en la búsqueda cambiando a minusculas
+            if($(li).text().toLowerCase().indexOf(txt) > -1){
+              //mostramos las listas que coincidan
+              $(li).parent().show();
+            }
+          });
+        });
+      });
+    </script>
 </body>
 
 </html>
