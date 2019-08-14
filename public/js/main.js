@@ -215,7 +215,7 @@ var app={
 	    	var cadena='';
 	    	for (var i = 0; i < rows.length; i++) {
 	    		var x=JSON.stringify(rows[i], null, 4);
-	    	  	cadena='<li onClick=app.mostrarDatosEquipo('+i+'); > <a href="#"><div class="minitxt"><span id="'+rows[i].ipID+'" class="glyphicon glyphicon-ban-circle alertaE"></span>'+rows[i].ip+'<br> '+rows[i].nombre+' '+ rows[i].ubicacion+'</div></a></li>';
+	    	  	cadena='<li onClick=app.mostrarDatosEquipo('+i+'); > <a href="#"><div class="minitxt"><span id="'+rows[i].ipID+'" class="glyphicon glyphicon-ban-circle alertaE"></span>'+rows[i].ip+'<br> <p>'+rows[i].nombre+' '+ rows[i].ubicacion+'</p></div></a></li>';
 	    	   $("#lstKioskos").append(cadena);//cargando contenido en index.html 
 	    	}
 

@@ -456,10 +456,11 @@
     });
   </script>
   
-  <script>
-      $(document).ready(function(){
+  <script type="text/javascript" charset="utf-8" async defer>
+      
+      $('#busqueda').change(function(){
         var busqueda = $('#busqueda'),
-        titulo = $('#lstKioskos li');
+        titulo = $('#lstKioskos li a');
         $(titulo).each(function(){
           var li = $(this);
           //si presionamos la tecla
