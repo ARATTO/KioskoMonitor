@@ -26,7 +26,9 @@
                                 <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Correo</th>
-                                <th scope="col">Creacion</th>
+                                <th scope="col">Perfil</th>
+                                <th scope="col">Creación</th>
+                                <th scope="col">Estado</th>
                                 <th scope="col">Acciones</th>
                                 </tr>
                             </thead>                  
@@ -35,10 +37,12 @@
                                 <tr>
                                     <td>{{nombre_usuario}}</td>
                                     <td>{{email}}</td>
-                                    <td>{{fecha_creacion}}</td>
+                                    <td>{{nombre_perfil}}</td>
+                                    <td>{{fechaCorta fecha_creacion}}</td>
+                                    <td>{{#estadoUsuario estado}}{{/estadoUsuario}}</td>
                                     <td>
                                         <div class="btn-group mx-auto" role="group" aria-label="Basic example">
-                                            {{#isAdminAcciones idPerfil idusuario}} 
+                                            {{#isAdminAcciones idPerfil idusuario nombre_usuario estado email }} 
                                             
                                             {{/isAdminAcciones}}
                                         </div>
@@ -61,15 +65,61 @@
     </div>
 </div>
 
+
+
 <script>
     var table = $('#usuarios').DataTable();
  
     new $.fn.dataTable.Buttons( table, {
         buttons: [
-            'copy', 'excel', 'pdf'
+             'excel', 'pdf'
         ]
     } );
     
     table.buttons().container().appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
     
+    
+</script>
+<script lang="Javascript">
+   
+    //por José Luis Olivares, 17/09/2019
+    function validarBorrado(id,nombre_usuario,email){
+         if (app.getLoggedUserMail()===email.trim()){
+            $.confirm({
+                title: 'Oops!',
+                content: '¡No puede eliminarse a si mismo!',
+                type: 'orange',
+                typeAnimated: true,
+                buttons: {
+                Ok:{
+                        keys:['esc','enter'],
+                    }
+                }
+            });
+         }else{
+            //validar borrado de usuario
+            var msg="¿Está seguro que desea eliminar el usuario?<br> <strong>"+nombre_usuario+"</strong>";
+            url="/usuario/borrarusuario/"+id; //url de borrado
+            
+            //usando jquery-confirm
+            $.confirm({
+                title: 'Eliminar usuario',
+                content: msg,
+                closeIcon: true,
+                buttons: {
+                    cancelar:{
+                        btnClass: 'btn-blue',
+                        keys:['esc'],
+                    },
+                    Eliminar: {
+                        btnClass: 'btn-danger',
+                        action: function () {
+                            window.location.href=url;
+                            
+                        }
+                    },    
+                }
+            });
+         }//close IF
+    }
 </script>

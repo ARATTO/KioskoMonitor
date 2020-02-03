@@ -29,3 +29,50 @@
   max-width: 400px;
   padding: 40px;
 }
+
+
+#page-wrapper-home{
+  background-color: #2b3335 !important;
+}
+   
+.txt-claro{
+  color: darkgray;
+  margin-bottom: 2rem;
+}
+
+.breadcum-margin{
+  margin-top: 2rem;
+}
+
+/* Data table logs kiosko*/
+.dt-small-font{
+  font-size: small;
+}
+
+.dt-log-fecha{
+  min-width: 160px !important;
+}
+
+.dt-log-equipo{
+  min-width: 200px !important; 
+}
+
+.login-error-vcenter{
+  margin-top: 30% !important;
+}
+
+#btnRefreshOffLine{
+  min-width: 34px;
+}
+
+.txt-centrado{
+  text-align: center !important;
+}
+
+.ip-validation{
+  color: red;
+}
+
+.jl-ocultar{
+  display: none;
+}

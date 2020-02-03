@@ -1,123 +1,228 @@
+//Funciones para decodificar el estatus de los Impresores
+//Autor: José Luis Olivares
+//Email: joseluiss_503@hotmail.com
+//Fecha: 23/09/2019
+//Version 2.0
+
+//Esta funcion se usara para impresores Zebra TTP2030 u otro modelo desconocido.
+
 function evaluaEstadoPrinter(printerX){
-	var strPrinterStatus='-1',strDetectedErrorstate='-1',strExtendedDetectedErrorState='-1';
+	var generalState='Listo',strDetectedErrorstate='-1',strExtendedDetectedErrorState='-1';
+    var strPrinterStatus='-1', strExtendedPrinterStatus='-1';
+
     switch (printerX.prStatus) {
         case 1: 
-          strPrinterStatus = "Otro"; //Other  
+          strPrinterStatus = "Other (Otro)"; //Other  
           break;    //prExtendedPrinterstatus  = wbemObject.ExtendedPrinterStatus 
         case 2: 
-          strPrinterStatus = "Desconocido"; //Unknown
+          strPrinterStatus = "Unknown (Desconocido)"; //Unknown
           break; 
         case 3: 
-          strPrinterStatus = "Sin Utilizar";//Idle  
+          strPrinterStatus = "Idle (Sin Utilizar)";//Idle  
           break;
         case 4: 
-          strPrinterStatus = "Imprimiendo"; //Printing 
+          strPrinterStatus = "Printing (Imprimiendo)"; //Printing 
           break;
         case 5: 
-          strPrinterStatus = "Calentando"; //Warmup
+          strPrinterStatus = "Warmup (Calentando)"; //Warmup
           break; 
         case 6: 
-          strPrinterStatus= "Impresion detenida";//Stopped printing
+          strPrinterStatus= "Stopped printing (Impresion detenida)";//Stopped printing
+          generalState='-1'; 
           break; 
         case 7: 
-          strPrinterStatus = "Fuera de Linea"; //Offline 
+          strPrinterStatus = "Offline (Fuera de Linea)"; //Offline
+          generalState='-1'; 
           break;       
      }   
 
+     switch (printerX.prExtendedPrinterstatus) { 
+         //Status information for a printer that is different from information specified in the Availability property
+        case 1: 
+          strExtendedPrinterStatus = "Other (Otro)"; //Other  
+          break;    
+        case 2: 
+          strExtendedPrinterStatus = "Unknown (Desconocido)"; //Unknown
+          break; 
+        case 3: 
+          strExtendedPrinterStatus = "Idle (Sin Utilizar)";//Idle  
+          break;
+        case 4: 
+          strExtendedPrinterStatus = "Printing (Imprimiendo)"; //Printing 
+          break;
+        case 5: 
+          strExtendedPrinterStatus = "Warmingup (Calentando)"; //Warmup
+          break; 
+        case 6: 
+          strExtendedPrinterStatus= "Stopped printing (Impresion detenida)";//Stopped printing
+          generalState='-1'; 
+          break; 
+        case 7: 
+          strExtendedPrinterStatus = "Offline (Fuera de Linea)"; //Offline 
+          generalState='-1'; 
+          break; 
+        case 8: 
+          strExtendedPrinterStatus = "Paused (Pausado)"; //Paused 
+          generalState='-1'; 
+          break;
+        case 9: 
+          strExtendedPrinterStatus = "Error (Error)"; 
+          generalState='-1'; 
+          break; 
+        case 10: 
+          strExtendedPrinterStatus = "Busy (Ocupado)"; 
+          generalState='-1'; 
+          break; 
+        case 11: 
+          strExtendedPrinterStatus = "Not Available (No disponible)"; 
+          generalState='-1'; 
+          break;
+        case 12: 
+          strExtendedPrinterStatus = "Waiting (Esperando)"; 
+          break; 
+        case 13: 
+          strExtendedPrinterStatus = "Processing (Procesando)"; 
+          break;
+        case 14: 
+          strExtendedPrinterStatus = "Initialization (Inicializando)"; 
+          generalState='-1'; 
+          break;                     
+        case 15: 
+          strExtendedPrinterStatus = "Power Save (Ahorro de poder)"; 
+          break;            
+        case 16: 
+          strExtendedPrinterStatus = "Pending Deletion (Pendiente Borrar)"; 
+          break;  
+        case 17: 
+          strExtendedPrinterStatus = "I/O Active"; 
+          break;   
+        case 18: 
+          strExtendedPrinterStatus = "Manual Feed (Alimentación Manual)"; 
+          break;                    
+     } 
+
     switch(printerX.prDetectedErrorState){  
         case 0: 
-            strDetectedErrorstate="Desconocido";  //Unknown
+            strDetectedErrorstate="Unknown (Desconocido)";  //Unknown
             break; 
         case 1: 
-            strDetectedErrorstate="Otro";//Other
+            strDetectedErrorstate="Other (Otro)";//Other
             break; 
         case 2: 
-            strDetectedErrorstate=" NoError";
+            strDetectedErrorstate="NoError (NoError)";
             break; 
         case 3: 
-            strDetectedErrorstate="Papel Bajo"; //Low Paper
+            strDetectedErrorstate="Low Paper (Papel Bajo)"; //Low Paper
+            generalState='-1'; 
             break; 
         case 4: 
-            strDetectedErrorstate="Sin Papel"; //NoPaper 
+            strDetectedErrorstate="NoPaper (Sin Papel)"; //NoPaper 
+            generalState='-1'; 
             break; 
         case 5: 
-            strDetectedErrorstate="Papel Bajo"; //Low Toner  -para zebra ttp2030 significa papel bajo
+            strDetectedErrorstate="Low Toner (Papel/Toner bajo)"; //Low Toner  -para zebra ttp2030 significa papel bajo
+            generalState='-1'; 
             break; 
         case 6: 
-            strDetectedErrorstate="Sin Toner"; //NoToner
+            strDetectedErrorstate="NoToner (Sin Toner)"; //NoToner
             break; 
         case 7: 
-            strDetectedErrorstate="Puerta abierta";//Door Open - 
+            strDetectedErrorstate="Door Open (Puerta abierta)";//Door Open - 
             break; 
         case 8: 
-            strDetectedErrorstate="Atascado";  //Jammed -
+            strDetectedErrorstate="Jammed (Atascado)";  //Jammed -
+            generalState='-1'; 
             break; 
         case 9: 
-            strDetectedErrorstate="Fuera de Linea";//Offline -
+            strDetectedErrorstate="Offline (Fuera de Linea)";//Offline -
+            generalState='-1'; 
             break; 
         case 10: 
-            strDetectedErrorstate="Requiere Servicio";//Service Requested 
+            strDetectedErrorstate="Service Requested (Requiere Servicio)";//Service Requested 
+            generalState='-1'; 
             break; 
         case 11: 
-            strDetectedErrorstate="Papel en puerta de salida"; //Output Bin Full 
+            strDetectedErrorstate="Output Bin Full (Papel en puerta de salida)"; //Output Bin Full 
+            generalState='-1'; 
             break;
     }
 
-
     switch (printerX.prExtendedDetectedErrorState){
         case 0: 
-            strExtendedDetectedErrorState="Desconocido";//Unknown -
+            strExtendedDetectedErrorState="Unknown (Desconocido)";//Unknown -
             break; 
         case 1: 
-            strExtendedDetectedErrorState="Otro"; // Other
+            strExtendedDetectedErrorState="Other (Otro)"; // Other
             break; 
         case 2: 
-            strExtendedDetectedErrorState=" NoError";
+            strExtendedDetectedErrorState="NoError (NoError)";
             break; 
         case 3: 
-            strExtendedDetectedErrorState="Papel Bajo"; //Low Paper 
+            strExtendedDetectedErrorState="Low Paper (Papel Bajo)"; //Low Paper 
+            generalState='-1'; 
             break; 
         case 4: 
-            strExtendedDetectedErrorState="Sin Papel"; //No Paper
+            strExtendedDetectedErrorState="No Paper (Sin Papel)"; //No Paper
+            generalState='-1'; 
             break; 
         case 5: 
-            strExtendedDetectedErrorState="Papel Bajo";//Low Toner 
+            strExtendedDetectedErrorState="Low Toner (Papel/Toner Bajo)";//Low Toner 
+            generalState='-1'; 
             break; 
         case 6: 
-            strExtendedDetectedErrorState="Sin Toner"; //No Toner
+            strExtendedDetectedErrorState="No Toner (Sin Toner)"; //No Toner
             break; 
         case 7: 
-            strExtendedDetectedErrorState="Puerta abierta"; //Door Open 
+            strExtendedDetectedErrorState="Door Open (Puerta abierta)"; //Door Open 
             break; 
         case 8: 
-            strExtendedDetectedErrorState="Atascado"; //Jammed 
+            strExtendedDetectedErrorState="Jammed (Atascado)"; //Jammed 
+            generalState='-1'; 
             break; 
         case 9: 
-            strExtendedDetectedErrorState="Requiere Servicio"; //Service Requested 
+            strExtendedDetectedErrorState="Service Requested (Requiere Servicio)"; //Service Requested 
+            generalState='-1'; 
             break; 
         case 10: 
-            strExtendedDetectedErrorState="Papel en puerta de salida";//Output Bin Full 
+            strExtendedDetectedErrorState="Output Bin Full (Papel en puerta de salida)";//Output Bin Full 
+            generalState='-1'; 
             break; 
         case 11: 
-            strExtendedDetectedErrorState="Problema de Papel";//Paper Problem 
+            strExtendedDetectedErrorState="Paper Problem (Problema de Papel)";//Paper Problem 
+            generalState='-1'; 
             break; 
         case 12: 
-            strExtendedDetectedErrorState="No se puede imprimir la pagina";//Cannot Print Page
+            strExtendedDetectedErrorState="Cannot Print Page (No se puede imprimir la pagina)";//Cannot Print Page
+            generalState='-1'; 
             break; 
         case 13: 
-            strExtendedDetectedErrorState="Requiere intervencion del Usuario";//User Intervantion Required 
+            strExtendedDetectedErrorState="User Intervantion Required (Requiere intervencion del Usuario)";//User Intervantion Required 
+            generalState='-1'; 
             break; 
         case 14: 
-            strExtendedDetectedErrorState="Sin memoria"; //Out of Memory 
+            strExtendedDetectedErrorState="Out of Memory (Sin memoria)"; //Out of Memory 
             break; 
         case 15: 
-            strExtendedDetectedErrorState="Servidor desconocido"; //Server Unknown 
+            strExtendedDetectedErrorState="Server Unknown (Servidor desconocido)"; //Server Unknown 
             break;
 	}//end switch
 
-		if(printerX.prStatus!==7 && printerX.prDetectedErrorState===0){
-			strPrinterStatus="Listo";
-		}
+   if(printerX.prStatus){
 
-	return {status:strPrinterStatus,detectedErrorState:strDetectedErrorstate,extendedDetectedErrorState:strExtendedDetectedErrorState};
+   } 
+
+   	/*if(printerX.prStatus!==7 && printerX.prDetectedErrorState===0){
+		generalState="Listo";
+    }*/
+    
+	return {generalState:generalState, printerStatus:strPrinterStatus,extendedPrinterStatus:strExtendedPrinterStatus, detectedErrorState:strDetectedErrorstate,extendedDetectedErrorState:strExtendedDetectedErrorState};
+}
+
+//11/10/2019  Verifica que el nombre del printer lleve la palabra Zebra
+function esprinterZebra(defaultPrinterName){
+  if(defaultPrinterName.indexOf('Zebra')!==-1 || defaultPrinterName.indexOf('zebra')!==-1 ){
+    return true;
+  }else{
+    return false;
+  }
 }

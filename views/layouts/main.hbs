@@ -35,7 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="../../js/socket.io-1.4.5.js"></script>
-    <script type="text/javascript" src="../../js/handlebars-v4.js"></script>
+    <script type="text/javascript" src="../../js/handlebars-v4.js"></script>>
     <script type="text/javascript" src="../../js/setServerIp.js"></script>
     <script type="text/javascript" src="../../js/jquery.js"></script> 
     <!-- Bootstrap Core JavaScript -->
@@ -50,7 +50,10 @@
     <script type="text/javascript" src="../../DataTables/datatables.js"></script>
     <script type="text/javascript" src="../../jQuery-Mask-Plugin/src/jquery.mask.js"></script>
 
-    
+    <!-- jquery confirm -->
+
+    <link rel="stylesheet" type="text/css" href="../../jquery-confirm/jquery-confirm.min.css"/>
+    <script type="text/Javascript" src="../../jquery-confirm/jquery-confirm.min.js" ></script>
 
 </head>
 <body>
@@ -70,15 +73,17 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/index.html">KIOSKO MONITOR V2.0 <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="/index.html">OKIOSK MONITOR V2.0 <span class="sr-only">(current)</span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/usuario/verusuarios"><i class="fa fa-users"></i> USUARIOS</a></li>
-                    <li><a href="/kiosko/verkioskos"><i class="fa fa-desktop"></i> KIOSKOS</a></li>
+                    <li id="adminItem1"><a href="/usuario/verusuarios"><i class="fa fa-users"></i> USUARIOS</a></li>
+                    <li id="adminItem2"><a href="/kiosko/verkioskos"><i class="fa fa-desktop"></i> KIOSKOS</a></li>
+                    <li id="generalItem1"><a href="/logs/verlogkioskos"><i class="fa fa-history"></i> LOG ALERTAS</a></li>
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Usuario <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-fw fa-user"></i> <span id="spnUserId"></span></a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-user"></i> <span id="spnUserId"></span></a>
+                        </li>
                         <li role="separator" class="divider"></li>
                         <li><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Cerrar sesion</a></li>
                     </ul>
@@ -92,7 +97,7 @@
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <!-- /.row -->
-                <div class="row">
+                <!-- <div class="row"> -->
                     <div class="col-lg-12">
                    		<div class="row"> 
                              <div id="divContenido">
@@ -104,7 +109,7 @@
                              </div> <!--  /divContenido -->
                          </div> <!-- end Row -->
                     </div>
-                </div>
+                <!-- </div> -->
                 <!-- /.row -->
 
             </div>
@@ -115,7 +120,11 @@
     <script type="text/javascript" charset="utf-8" async defer>
         $( document ).ready(function() {
             $.get("/username", function (data) {
-                $("#spnUserId").html(data.myUserId);
+                $("#spnUserId").html(data.myUserId);                
+                if(data.myPerfil>2){
+                    $("#adminItem1").html('');
+                    $("#adminItem2").html('');
+                }
             });
         });
     </script>

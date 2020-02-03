@@ -1,7 +1,7 @@
 {
   "name": "jluis_monitor",
   "version": "1.0.0",
-  "description": "Software de monitoreo de equipos, derechos reservados 2018",
+  "description": "Software de monitoreo de equipos, derechos reservados 2019",
   "author": "Jose Luis Olivares",
   "email": "joseluis_503@yahoo.com",
   "license": "MIT",
@@ -16,9 +16,11 @@
     "express-session": "^1.16.1",
     "morgan": "^1.9.1",
     "mysql": "^2.5.4",
+    "node-cron": "^2.0.3",
     "passport": "^0.2.2",
     "passport-local": "~1.0.0",
     "ping": "^0.2.2",
+    "simple-crypto-js": "^2.2.0",
     "socket.io": "^1.4.5",
     "timeago.js": "^4.0.0-beta.2"
   }

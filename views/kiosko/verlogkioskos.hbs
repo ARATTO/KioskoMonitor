@@ -1,0 +1,136 @@
+{{> nav_verkioskos}}
+<div class="container p-12">
+    <div class="row">
+        <dir class="pull-right">
+            {{#if mostrarBotones}}
+            <button id="btnLog2" class="btn btn-warning" onclick="eliminarLog(2)" role="button" title="Elimina logs posteriores a 3 meses">Borrar > 3 Meses </button>
+            &nbsp;
+            <button id="btnLog" class="btn btn-warning" onclick="eliminarLog(1)" role="button" title="Elimina todos los logs">Borrar todo</button> 
+            {{/if}}
+        </dir>
+        {{#if success }}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mx-auto">
+                        <div class="alert alert-success" role="alert">
+                            {{success}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">  
+                    <table id="logs" class="table table-striped table-bordered" style="width:100%">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="dt-log-fecha">Fecha</th>
+                                    <th scope="col" class="dt-log-equipo" >Nombre Equipo</th>
+                                    <th scope="col">Serie</th>
+                                    <th scope="col">IP</th>
+                                    <th scope="col">Estado General</th>
+                                    <th scope="col">Error Extendido</th>
+                                    <th scope="col">Estado Extendido</th>
+                                    <th scope="col">Error</th>
+                                    <th scope="col">Printer Estatus</th>
+                                </tr>
+                            </thead>                  
+                            <tbody>
+                                {{#each logKioskos}}
+                                <tr class="dt-small-font">
+                                    <td >{{fechaCorta fecha}}</td>
+                                    <td >{{nombre}}</td>
+                                    <td>{{serie}}</td>
+                                    <td>{{ip}}</td>
+                                    <td >{{generalState}}</td>
+                                    <td >{{extendedDetectedError}}</td>
+                                    <td >{{extendedPrinterStatus}}</td>
+                                    <td >{{detectedError}}</td>
+                                    <td >{{printerStatus}}</td>
+
+                                    <!--
+                                        //Printer=Webex Document Loader - 
+                                        //generalState=Listo, Otro Printer - 
+                                        //printerStatus=Idle (Sin Utilizar) -
+                                        //extendedPrinterStatus=Unknown (Desconocido) - 
+                                        //detectedError=Unknown (Desconocido) - 
+                                        //extendedDetectedError=undefined
+                                    <td>
+                                        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+                                            
+                                            <a href='/kiosko/editarkiosko/{{idequipo}}' class='btn btn-info btn-sm' title="Editar Kiosko"><i class="fa fa-pencil"></i></a>
+                                            <a onclick="eliminarEquipo({{idequipo}},'{{nombre}}')" class='btn btn-danger btn-sm' title="Eliminar Kiosko"><i class="fa fa-trash"></i></a>
+                                            
+                                        </div>
+                                    </td>
+                                    -->
+                                </tr>
+                                {{else}}
+                                <div class="col-md-12 mx-auto">
+                                    <div class="alert alert-danger" role="alert">
+                                        NO HAY LOGS EN EL SISTEMA.                                        
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </tbody>
+                    </table>       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var table = $('#logs').DataTable({
+        "columnDefs": [ { type: 'date', 'targets': [0] } ],
+        "order":[[0,"desc"]],
+        "pageLength":25,
+    });
+ //        "order":[[0,"desc"]]
+    new $.fn.dataTable.Buttons( table, {
+        buttons: [
+             'excel', 'pdf'
+        ]
+    } );
+    
+    table.buttons().container().appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
+</script>
+
+<script lang="Javascript">
+    //por José Luis Olivares, 18/09/2019
+    function eliminarLog(op){
+        //validar borrado de log kiosco        
+        if(!op){return false;}
+
+        if(op!==1 && op!==2){return false;}
+
+        var msg="Se eliminarán <strong>todos los logs</strong> almacenados<br> <strong>¿Desea confirmar la acción?</strong><br>";
+        if(op===2){
+            msg="Se eliminarán los logs <strong>posteriores a 3 meses</strong><br> <strong>¿Desea confirmar la acción?</strong><br>";
+        }
+        url="/logs/borrarlog/"+op; //url de borrado
+        //usando jquery-confirm
+        $.confirm({
+            title: 'Eliminar Logs',
+            content: msg,
+            closeIcon: true,
+            buttons: {
+                cancelar:{
+                    btnClass: 'btn-blue',
+                    keys:['esc'],
+                },
+                Eliminar: {
+                    btnClass: 'btn-danger',
+                    action: function () {
+                        window.location.href=url;                 
+                    }
+                },    
+            }
+        });
+    }
+</script>

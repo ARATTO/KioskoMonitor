@@ -3,6 +3,11 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
+const SimpleCrypto=require("simple-crypto-js").default;//password encrypt, Olivares
+const _secretKey=require('../lib/secret');
+
+let simpleCrypto2= new SimpleCrypto(_secretKey);
+
 ///////////////////
 /*
     sess=req.session;
@@ -27,9 +32,12 @@ router.post('/usuario/agrearUsuario', async (req, res) => {
         res.redirect('/login');
     } else {
         //Codigo aqui
-        const {nombre_usuario, email, password} = req.body;
-        //Crear usuario que NO es admin: idPerfil = 0
-        idPerfil = 0;
+        let {nombre_usuario, email, password,idPerfil} = req.body;
+
+        //encriptando password
+            password=simpleCrypto2.encrypt(password);
+        //console.log(`************ Password encriptada: ${password} `);
+        //Crear usuario 
         const newUser = {
             nombre_usuario,
             email,
@@ -38,7 +46,7 @@ router.post('/usuario/agrearUsuario', async (req, res) => {
         };
         //console.log(newUser.email);
         const existe = await pool.query('SELECT * FROM tblusuario WHERE email = ?', [newUser.email]);
-        console.log(existe.length);
+        //console.log(existe.length);
         if(existe.length > 0){
             req.flash('success','El correo que desea ingresar ya esta asignado para otro usuario.');
         }else{
@@ -59,12 +67,18 @@ router.post('/usuario/editarUsuario/:idusuario', async (req, res) => {
     } else {
         //Codigo aqui
         const { idusuario } = req.params;
-        const {nombre_usuario, email, password} = req.body;
+        let  {nombre_usuario, email, password,idPerfil,estado} = req.body;
         
+        //encriptando password
+            password=simpleCrypto2.encrypt(password);
+
+        //console.log(req.body);
         const editUser = {
             nombre_usuario,
             email,
-            password
+            password,
+            idPerfil,
+            estado
         };
         await pool.query('UPDATE tblusuario SET ? WHERE idusuario = ?', [editUser, idusuario]);
         req.flash('success','Usuario actualizado con exito');
@@ -90,7 +104,7 @@ router.post('/kiosko/agrearKiosko', async (req, res) => {
         const {nombre, serie, ip, ubicacion, contacto, telefono, email} = req.body;
         //Quitar puntos de IP para el IpID
         ipID = ip.split('.').join("");
-        console.log(ipID);
+        //console.log(ipID);
         const newKiosko = {
             nombre, 
             serie, 

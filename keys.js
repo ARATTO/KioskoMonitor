@@ -1,16 +1,7 @@
-var dbIp = require('./public/js/setServerIp.js'); //importando modulo donde esta la ip del servidor de BD
-
-/*
-  host     : dbIp.dbServer,
-  user     : dbIp.user,
-  password : dbIp.pass,
-  insecureAuth: true, 
-  database : dbIp.db,
-  port: dbIp.port
-*/
+var dbIp = require('./public/js/setServerDb.js').dbServer; //importando modulo donde esta la ip del servidor de BD
 
 module.exports = {
-  host     : dbIp.dbServer,
+  host     : dbIp.host,
   user     : dbIp.user,
   password : dbIp.pass,
   insecureAuth: true, 

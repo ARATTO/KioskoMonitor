@@ -5,6 +5,7 @@
             <a class="btn btn-success" href="/kiosko/agregarKiosko" role="button">Agregar Kiosko</a>
         </dir>
         {{#if success }}
+            <script lang="Javascript">app.refrescarListaEquipos();</script>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
@@ -27,27 +28,26 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Serie</th>
                                     <th scope="col">IP</th>
-                                    <th scope="col">Ubicacion</th>
+                                    <th scope="col">Ubicación</th>
                                     <th scope="col">Contacto</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Creacion</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Creación</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>                  
                             <tbody>
                                 {{#each kioskos}}
-                                <tr>
+                                <tr class="dt-small-font">
                                     <td>{{nombre}}</td>
                                     <td>{{serie}}</td>
                                     <td>{{ip}}</td>
                                     <td>{{ubicacion}}</td>
                                     <td>{{contacto}}</td>
                                     <td>{{telefono}}</td>
-                                    <td>{{fecha_creacion}}</td>
-                                    <td>
+                                    <td>{{fechaCorta fecha_creacion}}</td>
+                                    <td class="txt-centrado">
                                         <div class="btn-group mx-auto" role="group" aria-label="Basic example">
                                             <a href='/kiosko/editarkiosko/{{idequipo}}' class='btn btn-info btn-sm' title="Editar Kiosko"><i class="fa fa-pencil"></i></a>
-                                            <a href='/kiosko/borrarkiosko/{{idequipo}}' class='btn btn-danger btn-sm' title="Eliminar Kiosko"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -60,6 +60,9 @@
                                     </div>
                                 </div>
                                 {{/each}}
+                                    <!-- bk
+                                        <a onclick="eliminarEquipo({{idequipo}},'{{nombre}}')" class='btn btn-danger btn-sm' title="Eliminar Kiosko" ><i class="fa fa-trash"></i></a>
+                                    -->
                             </tbody>
                     </table>       
                 </div>
@@ -73,10 +76,38 @@
  
     new $.fn.dataTable.Buttons( table, {
         buttons: [
-            'copy', 'excel', 'pdf'
+             'excel', 'pdf'
         ]
     } );
     
     table.buttons().container().appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
 
+</script>
+
+<script lang="Javascript">
+    //por José Luis Olivares, 18/09/2019
+    function eliminarEquipo(id,nombreEquipo){
+        //validar borrado de kiosco
+        var msg="¿Está seguro que desea eliminar el equipo?<br> <strong>"+nombreEquipo+"</strong>";
+        url="/kiosko/borrarkiosko/"+id; //url de borrado
+        //usando jquery-confirm
+        $.confirm({
+            title: 'Eliminar Equipo',
+            content: msg,
+            closeIcon: true,
+            buttons: {
+                cancelar:{
+                    btnClass: 'btn-blue',
+                    keys:['esc'],
+                },
+                Eliminar: {
+                    btnClass: 'btn-danger',
+                    action: function () {
+                        window.location.href=url;
+                        
+                    }
+                },    
+            }
+        });
+    }
 </script>

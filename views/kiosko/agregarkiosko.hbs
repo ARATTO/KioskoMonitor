@@ -16,7 +16,8 @@
                         </div>
                         <div class="form-group">
                             <label for="ip">IP</label>
-                            <input type="text" class="form-control ip_address" name="ip" placeholder="ip de kiosko" required="true">
+                            <input type="text" class="form-control ip_address" name="ip" placeholder="ip de kiosko" required="true" id="ip">
+                            <span id="ipValidation" class="ip-validation"></span>
                         </div>
                         <div class="form-group">
                             <label for="ubicacion">Ubicacion</label>
@@ -59,5 +60,22 @@
             });
             $('.ip_address').mask('099.099.099.099');
             
+            $("#ip").blur(function(){
+                let ip=document.getElementById("ip").value;
+                let url="/kiosko/checkip/"+ip.trim();
+
+                $.get(url,function(data,status){
+                    if(status==="success"){
+                        if(data[0].existe>0){ // si existe esa ip
+                            $("#ipValidation").html("¡Ip: "+ip+" ya existe en la base de datos!");
+                            document.getElementById("ip").value="";
+                            document.getElementById("ip").focus();
+                        }else{
+                            $("#ipValidation").empty();
+                        }
+                    }
+                });
+            });
+
         });
 </script>
