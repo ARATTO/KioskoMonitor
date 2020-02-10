@@ -1,0 +1,546 @@
+(node:5481) [DEP0095] DeprecationWarning: timers.enroll() is deprecated. Please use setTimeout instead.
+(node:5481) [DEP0126] DeprecationWarning: timers.active() is deprecated. Please use timeout.refresh() instead.
+listening on *:3000
+La base de datos es conectada por pool
+(node:5481) [DEP0096] DeprecationWarning: timers.unenroll() is deprecated. Please use clearTimeout instead.
+Listado de usuarios cargados en memoria, total 1
+[0mGET /login [32m200 [0m9.197 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.451 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m4.952 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m6.888 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m5.003 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m4.053 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m3.716 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m5.003 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m4.966 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.358 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m2.278 ms - -[0m
+[0mGET /js/main.js [36m304 [0m2.110 ms - -[0m
+[0mGET /img/gbm.png [36m304 [0m0.576 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=vktzXiyXLnoOGyIUAAAA
+Listado de equipos enviados a GUI de monitoreo!
+(node:54283) [DEP0095] DeprecationWarning: timers.enroll() is deprecated. Please use setTimeout instead.
+(node:54283) [DEP0126] DeprecationWarning: timers.active() is deprecated. Please use timeout.refresh() instead.
+listening on *:3000
+La base de datos es conectada por pool
+(node:54283) [DEP0096] DeprecationWarning: timers.unenroll() is deprecated. Please use clearTimeout instead.
+Listado de usuarios cargados en memoria, total 1
+[0mPOST /login [36m302 [0m28.853 ms - 66[0m
+Listado de usuarios cargados en memoria, total 1
+[0mGET /index.html [32m200 [0m5.828 ms - 25097[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.338 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m3.640 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m5.933 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m6.127 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m6.409 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m6.655 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m7.595 ms - -[0m
+[0mGET /css/plugins/morris.css [32m200 [0m10.063 ms - 433[0m
+[0mGET /js/jquery.js [36m304 [0m4.376 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m4.233 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m4.200 ms - -[0m
+[0mGET /js/main.js [36m304 [0m0.905 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [32m200 [0m4.793 ms - 4388[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=I7W69PocifhUFvj5AAAA
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /img/mini-logo-ba.jpg [32m200 [0m1.845 ms - 18136[0m
+[0mGET /username [32m200 [0m1.674 ms - 86[0m
+[0mGET /font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 [32m200 [0m2.261 ms - 77160[0m
+[0mGET /fonts/glyphicons-halflings-regular.woff2 [32m200 [0m1.450 ms - 18028[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /usuario/verusuarios [32m200 [0m39.158 ms - 10188[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.248 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.799 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m3.650 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.714 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m2.637 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.654 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m3.398 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.470 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m2.245 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.271 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m2.178 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m2.319 ms - -[0m
+[0mGET /js/main.js [36m304 [0m1.670 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [32m200 [0m2.785 ms - 23161[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [32m200 [0m3.019 ms - 22546[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [32m200 [0m3.686 ms - 28231[0m
+[0mGET /DataTables/datatables.js [32m200 [0m4.128 ms - 3986620[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=uj0gmZww6lxnW5B7AAAB
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.607 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /kiosko/verkioskos [32m200 [0m17.177 ms - 9827[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m0.723 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.780 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m1.527 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.251 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m5.454 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m4.409 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m4.323 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m4.925 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m5.602 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.306 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.640 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m2.701 ms - -[0m
+[0mGET /js/main.js [36m304 [0m2.587 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m1.794 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m1.732 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m1.418 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m1.398 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=hixmdIYbvBKUqPqzAAAC
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.617 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /usuario/verusuarios [32m200 [0m13.554 ms - 10188[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.216 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.992 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m1.708 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.140 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m1.653 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.960 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.993 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.128 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.261 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.601 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m4.391 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m4.535 ms - -[0m
+[0mGET /js/main.js [36m304 [0m4.209 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m4.284 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m4.308 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m4.280 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m3.252 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=Uo0YMeKexZuWnkxgAAAD
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.572 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /index.html [32m200 [0m1.072 ms - 25097[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m4.185 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m4.173 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m4.158 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.184 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m4.230 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.255 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.903 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.627 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.700 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.688 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.727 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m3.727 ms - -[0m
+[0mGET /js/main.js [36m304 [0m2.032 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=vAG-hND2t_19LCuHAAAE
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /fonts/glyphicons-halflings-regular.woff2 [36m304 [0m1.032 ms - -[0m
+[0mGET /username [36m304 [0m0.571 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /logs/verlogkioskos [32m200 [0m26.171 ms - 9940[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m1.067 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m3.453 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m3.009 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.926 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m2.823 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.482 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m3.443 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m2.430 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m2.448 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.409 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m2.431 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m3.792 ms - -[0m
+[0mGET /js/main.js [36m304 [0m6.016 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m5.429 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m5.345 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m5.220 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m5.191 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=U-5NgpHZf3jE8538AAAF
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m1.388 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET / [32m200 [0m1.422 ms - 25097[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.472 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m1.544 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m1.324 ms - -[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m4.193 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m3.174 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.519 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.593 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.708 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.846 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.381 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.583 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m3.529 ms - -[0m
+[0mGET /js/main.js [36m304 [0m3.877 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=9Knr-0FlLqRh2FSoAAAG
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.587 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /index.html [32m200 [0m1.154 ms - 25097[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m1.188 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m2.680 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m2.840 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.734 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m2.770 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.671 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m5.768 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.376 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.256 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m4.740 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m4.843 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m4.906 ms - -[0m
+[0mGET /js/main.js [36m304 [0m0.750 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=f3iB-JUv4DlvtwNXAAAH
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m1.257 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /logout [36m302 [0m0.568 ms - 56[0m
+[0mGET /login [32m200 [0m1.262 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.329 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m2.532 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m2.610 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.505 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.481 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.481 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.361 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.449 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.469 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.448 ms - -[0m
+[0mGET /js/main.js [36m304 [0m3.519 ms - -[0m
+[0mGET /img/gbm.png [36m304 [0m0.756 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=fzbqOrRkuEr-TagaAAAI
+Listado de equipos enviados a GUI de monitoreo!
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mPOST /login [36m302 [0m1.273 ms - 66[0m
+Listado de usuarios cargados en memoria, total 1
+[0mGET /index.html [32m200 [0m1.223 ms - 25097[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m5.887 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m5.291 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m5.364 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.542 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m3.976 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m4.808 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.756 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m2.968 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m5.275 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.994 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.889 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m3.841 ms - -[0m
+[0mGET /js/main.js [36m304 [0m1.622 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=suE4S-36MzPf7UR8AAAJ
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.607 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /index.html [32m200 [0m1.858 ms - 25097[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m0.805 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m0.869 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m0.827 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.858 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m1.983 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.813 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.896 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.769 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.685 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.806 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m4.423 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m2.793 ms - -[0m
+[0mGET /js/main.js [36m304 [0m19.928 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=4mo5gkqPJMIS4RQFAAAK
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.621 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /usuario/verusuarios [32m200 [0m8.895 ms - 10188[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m1.489 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.220 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m3.837 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m3.888 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m3.987 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m3.932 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m3.306 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.338 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m2.687 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.682 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.107 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m3.080 ms - -[0m
+[0mGET /js/main.js [36m304 [0m3.035 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m3.028 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m1.337 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m1.233 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m1.653 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=0MXDm-u458kwipV6AAAL
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.654 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /kiosko/verkioskos [32m200 [0m12.762 ms - 9827[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.883 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m3.607 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m3.509 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.106 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m4.066 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m4.722 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m3.507 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m7.327 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m5.774 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m5.627 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m10.014 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m5.976 ms - -[0m
+[0mGET /js/main.js [36m304 [0m7.110 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m5.633 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m3.716 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m3.743 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m2.418 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=xosC6uIot9LwkWpyAAAM
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.826 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET / [32m200 [0m1.045 ms - 25097[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m0.680 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m5.218 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m5.316 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m5.164 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m4.610 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m12.951 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m11.140 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m6.086 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m5.983 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m5.922 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m5.875 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m1.997 ms - -[0m
+[0mGET /js/main.js [36m304 [0m2.083 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=6_2PVJOElWX3tS6oAAAN
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m0.658 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /usuario/verusuarios [32m200 [0m10.813 ms - 10188[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m1.863 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m1.802 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m1.749 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.693 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m1.576 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m6.076 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m6.040 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m5.965 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m5.936 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m5.299 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m5.230 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m2.350 ms - -[0m
+[0mGET /js/main.js [36m304 [0m2.322 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m2.377 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m2.337 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m2.185 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m2.286 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=z6fFh0gOaL09JTwRAAAO
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m1.374 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /kiosko/verkioskos [32m200 [0m11.659 ms - 9827[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.351 ms - -[0m
+[0mGET /css/plugins/morris.css [36m304 [0m1.069 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m1.452 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.446 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m3.236 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m3.055 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.888 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m2.796 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.190 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m7.014 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m7.022 ms - -[0m
+[0mGET /js/fn_leerConfManagerErrorCode_olivares.js [36m304 [0m7.022 ms - -[0m
+[0mGET /js/main.js [36m304 [0m7.647 ms - -[0m
+[0mGET /DataTables/datatables.js [36m304 [0m7.455 ms - -[0m
+[0mGET /jQuery-Mask-Plugin/src/jquery.mask.js [36m304 [0m6.714 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.css [36m304 [0m1.694 ms - -[0m
+[0mGET /jquery-confirm/jquery-confirm.min.js [36m304 [0m1.745 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=KZjKsl_sXMOkQu7iAAAP
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /username [36m304 [0m1.097 ms - -[0m
+(node:55948) [DEP0095] DeprecationWarning: timers.enroll() is deprecated. Please use setTimeout instead.
+(node:55948) [DEP0126] DeprecationWarning: timers.active() is deprecated. Please use timeout.refresh() instead.
+listening on *:3000
+La base de datos es conectada por pool
+(node:55948) [DEP0096] DeprecationWarning: timers.unenroll() is deprecated. Please use clearTimeout instead.
+Listado de usuarios cargados en memoria, total 1
+[0mGET / [36m302 [0m8.275 ms - 56[0m
+[0mGET /login [32m200 [0m4.565 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m6.167 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m4.744 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m4.695 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.664 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m4.587 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m5.951 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.386 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.477 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.422 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.738 ms - -[0m
+[0mGET /js/main.js [36m304 [0m1.753 ms - -[0m
+[0mGET /img/gbm.png [36m304 [0m1.945 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=p3GBxYCy7F9z_Nf7AAAA
+Listado de equipos enviados a GUI de monitoreo!
+(node:57064) [DEP0095] DeprecationWarning: timers.enroll() is deprecated. Please use setTimeout instead.
+(node:57064) [DEP0126] DeprecationWarning: timers.active() is deprecated. Please use timeout.refresh() instead.
+listening on *:3000
+La base de datos es conectada por pool
+(node:57064) [DEP0096] DeprecationWarning: timers.unenroll() is deprecated. Please use clearTimeout instead.
+Listado de usuarios cargados en memoria, total 1
+[0mGET /login [32m200 [0m7.873 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m3.967 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m3.567 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m3.425 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m5.050 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m5.120 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m3.473 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.633 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m3.668 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m4.136 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m2.734 ms - -[0m
+[0mGET /js/main.js [36m304 [0m2.707 ms - -[0m
+[0mGET /img/gbm.png [36m304 [0m0.565 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=Ji2Rn8x_-WPqUfWxAAAA
+Listado de equipos enviados a GUI de monitoreo!
+(node:57102) [DEP0095] DeprecationWarning: timers.enroll() is deprecated. Please use setTimeout instead.
+(node:57102) [DEP0126] DeprecationWarning: timers.active() is deprecated. Please use timeout.refresh() instead.
+listening on *:3000
+La base de datos es conectada por pool
+(node:57102) [DEP0096] DeprecationWarning: timers.unenroll() is deprecated. Please use clearTimeout instead.
+Listado de usuarios cargados en memoria, total 1
+[0mGET /login [32m200 [0m12.459 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m5.106 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m3.635 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m3.564 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.431 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m3.033 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m4.980 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m2.894 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m3.009 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.969 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m3.342 ms - -[0m
+[0mGET /js/main.js [36m304 [0m3.326 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=q1OgOUp6yzebQyA2AAAA
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /img/gbm.png [36m304 [0m1.066 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /login [32m200 [0m2.506 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.274 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m2.837 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m4.389 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m4.590 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m3.992 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m4.893 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m2.683 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m2.169 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m2.077 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m2.375 ms - -[0m
+[0mGET /js/main.js [36m304 [0m1.929 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=eJ0f2tW11ocEtcIEAAAB
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /img/gbm.png [36m304 [0m0.535 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /login [32m200 [0m1.216 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m1.414 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m2.036 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m2.006 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m2.208 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m2.213 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m2.857 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m1.825 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m2.306 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m4.589 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m4.498 ms - -[0m
+[0mGET /js/main.js [36m304 [0m4.512 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=Noi_4DmjgoO9WdabAAAC
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /img/gbm.png [36m304 [0m0.732 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---
+[0mGET /login [32m200 [0m0.966 ms - 3052[0m
+[0mGET /css/bootstrap.min.css [36m304 [0m2.432 ms - -[0m
+[0mGET /css/sb-admin.css [36m304 [0m2.413 ms - -[0m
+[0mGET /css/jlstyle.css [36m304 [0m1.926 ms - -[0m
+[0mGET /font-awesome/css/font-awesome.min.css [36m304 [0m1.920 ms - -[0m
+[0mGET /js/socket.io-1.4.5.js [36m304 [0m1.686 ms - -[0m
+[0mGET /js/handlebars-v4.js [36m304 [0m0.727 ms - -[0m
+[0mGET /js/setServerIp.js [36m304 [0m1.607 ms - -[0m
+[0mGET /js/jquery.js [36m304 [0m1.359 ms - -[0m
+[0mGET /js/bootstrap.min.js [36m304 [0m1.251 ms - -[0m
+[0mGET /js/fn_printer_olivares.js [36m304 [0m0.915 ms - -[0m
+[0mGET /js/main.js [36m304 [0m1.080 ms - -[0m
+++++
+Cliente conectado a Interfaz de monitoreo, socket.id=_f_m1vhmDLkIJH71AAAD
+Listado de equipos enviados a GUI de monitoreo!
+[0mGET /img/gbm.png [36m304 [0m0.878 ms - -[0m
+----
+Cliente desconectado...undefined
+Total clientes conectados: 0
+---

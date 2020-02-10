@@ -333,6 +333,7 @@ io.on('connection', function(socket){
 			console.log("Error Detectado: "+equipo.detectedErrorState);
 			console.log("Error Detectado Extendido: "+equipo.extendedDetectedErrorState);
 			console.log("¿Es printer Zebra?",equipo.esPrinterZebra);
+			console.log("Contador papel: "+equipo.control);
 			console.log(".......");	
 			
 			if(equiposConectados.indexOf(equipo.ipID)===-1)//si no esta en el array, lo agrega. 
@@ -421,7 +422,7 @@ io.on('connection', function(socket){
 				pool.getConnection(function(err, connection) { 
 					var query=`INSERT INTO tblalertas_log (idequipo,descripcion)
 					  VALUES ((SELECT idequipo FROM tblequipo WHERE ipID=?),?)`;
-					var description=` Printer=${equipo.printerName} - generalState=${equipo.generalState} - printerStatus=${equipo.printerStatus} - extendedPrinterStatus=${equipo.extendedPrinterStatus} - detectedError=${equipo.detectedErrorState} - extendedDetectedError=${equipo.extendedDetectedError}`;
+					var description=` Printer=${equipo.printerName} - generalState=${equipo.generalState} - printerStatus=${equipo.printerStatus} - extendedPrinterStatus=${equipo.extendedPrinterStatus} - detectedError=${equipo.detectedErrorState} - extendedDetectedError=${equipo.extendedDetectedErrorState}`;
 					  // Use the connection
 					  connection.query(query,[equipo.ipID,description],async function(err, rows) {
 							  if(err){
