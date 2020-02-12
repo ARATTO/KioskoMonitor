@@ -22,7 +22,17 @@ router.get('/verKioskos', async (req, res) => {
         //Codigo aqui
         const kioskos = await pool.query('SELECT * FROM tblequipo');        
         //console.log(kioskos);
-
+        //validar si el kiosko esta activo o dado de baja para frontend helpers
+        kioskos.forEach(k => {
+            if(k.estado === 1){
+                k.darbaja=true;
+                k.txtestado='Activo';
+            }else{
+                k.darbaja=false;
+                k.txtestado='Inactivo';
+            }
+        });
+        
 	    //18/09/2019 para corregir que se navegue hasta aqui sin estar logueado (Olivares)
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate'); 
                
@@ -82,6 +92,39 @@ router.get('/checkip/:ip', async (req, res) => {
         const kskExiste= await pool.query('SELECT COUNT(ipID) as existe FROM tblequipo WHERE ip = ?', [ip]);
         res.send(kskExiste);
     }
+});
+
+//motto
+//12/2/2020
+//dar de baja kiosko
+router.get('/darbajakiosko/:idequipo', async (req, res) => {
+    sess=req.session;
+    if (!sess.username||!perfil.validarAcceso(sess.idperfil)) {
+        res.redirect('/login');
+    } else {
+        //Codigo aqui
+        const { idequipo } = req.params;
+        await pool.query('UPDATE tblequipo SET estado=0 WHERE idequipo = ?', [idequipo]);
+
+        req.flash('success','Kiosko dado de baja con exito');
+        res.redirect('/kiosko/verkioskos');
+    }
+    //console.log(req.params.idequipo);
+});
+//activar kiosko
+router.get('/activarkiosko/:idequipo', async (req, res) => {
+    sess=req.session;
+    if (!sess.username||!perfil.validarAcceso(sess.idperfil)) {
+        res.redirect('/login');
+    } else {
+        //Codigo aqui
+        const { idequipo } = req.params;
+        await pool.query('UPDATE tblequipo SET estado=1 WHERE idequipo = ?', [idequipo]);
+
+        req.flash('success','Activado monitoreo con exito');
+        res.redirect('/kiosko/verkioskos');
+    }
+    //console.log(req.params.idequipo);
 });
 
 module.exports = router;

@@ -32,6 +32,7 @@
                                     <th scope="col">Contacto</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Creación</th>
+                                    <th scope="col">Estado</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>                  
@@ -45,9 +46,15 @@
                                     <td>{{contacto}}</td>
                                     <td>{{telefono}}</td>
                                     <td>{{fechaCorta fecha_creacion}}</td>
+                                    <td>{{txtestado}}</td>
                                     <td class="txt-centrado">
                                         <div class="btn-group mx-auto" role="group" aria-label="Basic example">
                                             <a href='/kiosko/editarkiosko/{{idequipo}}' class='btn btn-info btn-sm' title="Editar Kiosko"><i class="fa fa-pencil"></i></a>
+                                            {{#if darbaja}}
+                                               <a href='/kiosko/darbajakiosko/{{idequipo}}' class='btn btn-danger btn-sm' title="Dar de baja Kiosko"><i class="fa fa-level-down"></i></a>
+                                            {{else}}
+                                               <a href='/kiosko/activarkiosko/{{idequipo}}' class='btn btn-success btn-sm' title="Activar Kiosko"><i class="fa fa-level-up"></i></a>
+                                            {{/if}}
                                         </div>
                                     </td>
                                 </tr>
