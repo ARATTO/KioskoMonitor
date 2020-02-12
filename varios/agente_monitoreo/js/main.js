@@ -94,7 +94,7 @@ var app={
 			if(myPrinter.generalState==='-1'){//colocamos un mensaje mas entendible
 				//motto 4/2/2020 - controlar error de papel en puerta de salida hasta 6 intentos
 				//si es papel en la puerta de salida comprobar conteo sino mostar error
-				if(myPrinter.detectedErrorState==="Output Bin Full (Papel en puerta de salida)" || myPrinter.extendedDetectedErrorState==="Output Bin Full (Papel en puerta de salida)"){
+				if(myPrinter.detectedErrorState==="Papel en puerta de salida" || myPrinter.extendedDetectedErrorState==="Papel en puerta de salida"){
 					//6 intentos y lo alerta // intentos=6
 					if(controlPapelSalida >= intentos){
 						myPrinter.generalState='Error';
@@ -103,7 +103,7 @@ var app={
 					}else{
 						controlPapelSalida++;
 						myPrinter.generalState='Listo';
-						prLastStatus='listo';//5/2/2020
+						//prLastStatus='listo';//5/2/2020
 					}
 				}else{//mostrar error inicializar a 0
 					myPrinter.generalState='Error';
