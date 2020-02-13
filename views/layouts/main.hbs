@@ -128,5 +128,24 @@
             });
         });
     </script>
+
+    <script type="text/javascript" charset="utf-8" async defer>
+    $( document ).ready(function() {
+          var time;
+          window.onload = resetTimer;
+          //DOM events
+          document.onmousemove = resetTimer;
+          document.onkeypress = resetTimer;
+
+          function logout(){
+            location.href = '/logout';
+          }
+
+          function resetTimer(){
+            clearTimeout(time);
+            time = setTimeout(logout, 300000); // ms
+          }
+    });
+    </script>
 </body>
 </html>

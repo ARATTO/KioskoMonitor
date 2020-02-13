@@ -58,7 +58,7 @@ router.get('/verlogkioskos', async (req, res) => {
                     spliTmp = logCompleto[5].split("=");
                     log.extendedDetectedError = spliTmp[1];
 
-                    console.log('printer', log);
+                    //console.log('printer', log);
 
 
 
@@ -71,7 +71,7 @@ router.get('/verlogkioskos', async (req, res) => {
     
     
                 }else{
-                    console.log('log offline', log.descripcion);
+                    //console.log('log offline', log.descripcion);
                     let tmpOff = "Offline";
                     log.printer = tmpOff;
                     log.generalState = tmpOff;

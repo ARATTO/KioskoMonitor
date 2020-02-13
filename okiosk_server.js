@@ -38,7 +38,15 @@ app.set('view engine', '.hbs');
 app.use(session({
 	secret: 'gbmsv',
 	resave:false, 
-	saveUninitialized: true}
+	saveUninitialized: true,
+	cookie: {
+		path: '/',
+		httpOnly: true,
+		secure: false,
+		maxAge: 60000, // 5 min
+	}
+
+	}
 ));
 //Mansajes frontend
 app.use(flash());
@@ -185,6 +193,8 @@ app.use(express.static(__dirname + '/public'));//movido
 
 function requireLogin (req, res, next) {
 	sess=req.session;
+	//sess.cookie.originalmaxAge = autologout(sess.cookie.originalmaxAge);
+	//console.log('ms de sesion',sess.cookie.maxAge);
 	//console.log(req.session);
   if (!sess.username) {
     res.redirect('/login');
