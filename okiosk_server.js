@@ -41,7 +41,7 @@ app.use(session({
 	saveUninitialized: false,
 	rolling: true, //refresh
 	cookie: {
-		expires: 300000, //5 min === 300000 ms auto logout
+		expires: 240000, //4 min === 240000 ms auto logout
 	}
 }));
 //Mansajes frontend

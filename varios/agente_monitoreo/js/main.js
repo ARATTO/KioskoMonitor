@@ -57,7 +57,14 @@ var app={
 					  prExtendedDetectedErrorState=p.ExtendedDetectedErrorState;
 					  
 					  prTextStatus=p.status;//estado devuelto en string
-					  prDriverName=p.DriverName;//no se envía					  
+					  prDriverName=p.DriverName;//no se envía				
+					  
+					  //motto 24/2/2020 Funcion de atasco de papel
+					  if(p.PrinterState === 2056){
+							prDetectedErrorState = 8; //Papel atascado
+							prExtendedDetectedErrorState = 8; //Papel atascado
+					  }
+
 					  prLastErrorCode=p.LastErrorCode||-1;//no se envia
 					  strErrorDescription=p.ErrorDescription||-1;//no se envia
 
